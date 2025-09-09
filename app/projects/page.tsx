@@ -1,0 +1,194 @@
+import { Metadata } from "next";
+import Link from "next/link";
+import { projects } from "@/constants/data";
+
+export const metadata: Metadata = {
+  title: "All Projects - Muhammad Bilal Yousaf",
+  description:
+    "A collection of projects showcasing frontend development expertise and modern web technologies.",
+};
+
+export default function ProjectsPage() {
+  return (
+    <div
+      className="mx-auto min-h-screen max-w-screen-xl 
+      md:px-12 md:py-20 lg:px-24 lg:py-0"
+    >
+      <div className="lg:py-24">
+        <Link
+          href="/"
+          className="group mb-2 inline-flex items-center font-semibold leading-tight text-portfolio hover:text-slate-700 dark:hover:text-slate-200 transition-colors"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="mr-1 h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-2"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14m-7-7 7 7-7 7" />
+          </svg>
+          Muhammad Bilal Yousaf
+        </Link>
+
+        <h1 className="text-4xl font-bold tracking-tight text-slate-800 dark:text-slate-200 sm:text-5xl">
+          All Projects
+        </h1>
+
+        <div className="mt-12">
+          <table className="mt-12 w-full border-collapse text-left">
+            <thead className="sticky top-0 z-10 border-b border-slate-200 dark:border-slate-300/10 px-6 py-5">
+              <tr>
+                <th className="py-4 pr-8 text-sm font-semibold text-slate-800 dark:text-slate-200">
+                  Year
+                </th>
+                <th className="py-4 pr-8 text-sm font-semibold text-slate-800 dark:text-slate-200">
+                  Project
+                </th>
+                <th className="hidden py-4 pr-8 text-sm font-semibold text-slate-800 dark:text-slate-200 lg:table-cell">
+                  Built with
+                </th>
+                <th className="hidden py-4 pr-8 text-sm font-semibold text-slate-800 dark:text-slate-200 sm:table-cell">
+                  Links
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {projects.map((project) => (
+                <tr
+                  key={project.id}
+                  className="border-b border-slate-200 dark:border-slate-300/10 last:border-none"
+                >
+                  <td className="py-4 pr-4 align-top text-sm">
+                    <div className="translate-y-px">2024</div>
+                  </td>
+                  <td className="py-4 pr-4 align-top font-semibold leading-snug text-slate-800 dark:text-slate-200">
+                    <div>
+                      <div className="block sm:hidden">
+                        <Link
+                          className="inline-flex items-baseline font-medium leading-tight text-slate-800 dark:text-slate-200 hover:text-portfolio focus-visible:text-portfolio"
+                          href={`/projects/${project.id}`}
+                          aria-label={`${project.title} (view project details)`}
+                        >
+                          <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                          <span>
+                            {project.title}
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
+                              aria-hidden="true"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M5 12h14m-7-7 7 7-7 7"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                        </Link>
+                      </div>
+                      <div className="hidden sm:block">
+                        <Link
+                          className="inline-flex items-baseline font-medium leading-tight text-slate-800 dark:text-slate-200 hover:text-portfolio focus-visible:text-portfolio"
+                          href={`/projects/${project.id}`}
+                        >
+                          {project.title}
+                        </Link>
+                      </div>
+                      <p className="mt-2 text-sm leading-normal text-slate-600 dark:text-slate-400">
+                        {project.description}
+                      </p>
+                      <ul
+                        className="mt-2 flex flex-wrap sm:hidden"
+                        aria-label="Technologies used"
+                      >
+                        {project.technologies.slice(0, 3).map((tech) => (
+                          <li key={tech} className="mr-1.5 mt-2">
+                            <div className="flex items-center rounded-full bg-portfolio/10 px-3 py-1 text-xs font-medium leading-5 text-portfolio">
+                              {tech}
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </td>
+                  <td className="hidden py-4 pr-4 align-top lg:table-cell">
+                    <ul className="flex -translate-y-1.5 flex-wrap">
+                      {project.technologies.map((tech) => (
+                        <li key={tech} className="my-1 mr-1.5">
+                          <div className="flex items-center rounded-full bg-portfolio/10 px-3 py-1 text-xs font-medium leading-5 text-portfolio">
+                            {tech}
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </td>
+                  <td className="hidden py-4 align-top sm:table-cell">
+                    <ul className="translate-y-1">
+                      {project.github && (
+                        <li className="mb-1 flex items-center">
+                          <a
+                            className="inline-flex items-baseline font-medium leading-tight text-slate-600 dark:text-slate-400 hover:text-portfolio focus-visible:text-portfolio"
+                            href={project.github}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            aria-label={`${project.title} on GitHub (opens in a new tab)`}
+                          >
+                            <span>
+                              <svg
+                                className="mr-1 h-3 w-3"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                              </svg>
+                              GitHub
+                            </span>
+                          </a>
+                        </li>
+                      )}
+                      {project.demo && (
+                        <li className="mb-1 flex items-center">
+                          <a
+                            className="inline-flex items-baseline font-medium leading-tight text-slate-600 dark:text-slate-400 hover:text-portfolio focus-visible:text-portfolio"
+                            href={project.demo}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            aria-label={`${project.title} live demo (opens in a new tab)`}
+                          >
+                            <span>
+                              <svg
+                                className="mr-1 h-3 w-3"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                />
+                              </svg>
+                              Demo
+                            </span>
+                          </a>
+                        </li>
+                      )}
+                    </ul>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+}
