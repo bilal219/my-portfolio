@@ -190,3 +190,50 @@
 .bg-gradient-button {
   background: linear-gradient(to right, var(--color-btn-start), var(--color-btn-end));
 }
+
+/* Portfolio Text Gradient with 3D Effect */
+.text-portfolio-gradient {
+  background: linear-gradient(to bottom right, var(--color-portfolio) 0%, color-mix(in srgb, var(--color-portfolio) 90%, #000000) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* text-shadow: 
+    0 1px 3px rgba(0, 119, 182, 0.3),
+    0 2px 6px rgba(0, 119, 182, 0.15); */
+  position: relative;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+
+.dark .text-portfolio-gradient {
+  background: linear-gradient(to bottom right, var(--color-portfolio) 0%, color-mix(in srgb, var(--color-portfolio) 90%, #ffffff) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* text-shadow: 
+    0 1px 3px rgba(0, 180, 216, 0.4),
+    0 2px 6px rgba(0, 180, 216, 0.2),
+    0 0 10px rgba(0, 180, 216, 0.1); */
+}
+
+/* SVG Icons with Gradient and 3D Effect */
+.icon-portfolio-gradient svg {
+  fill: url(#portfolioGradient);
+  /* filter: drop-shadow(0 1px 2px rgba(0, 119, 182, 0.3)); */
+  transition: all 0.3s ease;
+}
+
+.dark .icon-portfolio-gradient svg {
+  fill: url(#portfolioGradientDark);
+  /* filter: drop-shadow(0 1px 2px rgba(0, 180, 216, 0.4)); */
+}
+
+.icon-portfolio-gradient:hover svg {
+  transform: translateY(-1px) scale(1.05);
+}
+
+
+
+.icon-portfolio-gradient {
+  transition: all 0.3s ease;
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Input, Textarea, Button } from "./common";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -94,7 +95,7 @@ export default function Contact() {
 
   return (
     <section id="contact" aria-label="Contact me" className="relative">
-      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0 backdrop-blur-md bg-portfolio/10 border-b border-portfolio/20">
+      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-7 md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0 backdrop-blur-md ">
         <h2 className="text-[6px] font-bold uppercase tracking-widest text-slate-700 dark:text-slate-200 lg:sr-only font-dreams leading-[4]">
           Contact
         </h2>
@@ -151,93 +152,49 @@ export default function Contact() {
           </h3>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-slate-700 dark:text-slate-300"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-slate-100 dark:bg-slate-800/50 border border-slate-300/50 dark:border-slate-600/30 rounded-lg text-slate-800 dark:text-slate-200 placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-portfolio/50 focus:border-portfolio/50 transition-all font-helvetica"
-                  placeholder="Your name"
-                />
-              </div>
-              <div className="space-y-2">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-slate-700 dark:text-slate-300"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-slate-100 dark:bg-slate-800/50 border border-slate-300/50 dark:border-slate-600/30 rounded-lg text-slate-800 dark:text-slate-200 placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-portfolio/50 focus:border-portfolio/50 transition-all font-helvetica"
-                  placeholder="your@email.com"
-                />
-              </div>
-            </div>
-            <div className="space-y-2">
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-slate-700 dark:text-slate-300"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
+              <Input
+                type="text"
+                id="name"
+                name="name"
+                label="Name"
+                value={formData.name}
                 onChange={handleChange}
                 required
-                rows={4}
-                className="w-full px-4 py-3 bg-slate-100 dark:bg-slate-800/50 border border-slate-300/50 dark:border-slate-600/30 rounded-lg text-slate-800 dark:text-slate-200 placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-portfolio/50 focus:border-portfolio/50 transition-all resize-none font-helvetica"
-                placeholder="Your message..."
+                placeholder="Your name"
+                className="bg-slate-100 dark:bg-slate-800/50 border-slate-300/50 dark:border-slate-600/30 rounded-xl font-helvetica"
+              />
+              <Input
+                type="email"
+                id="email"
+                name="email"
+                label="Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                placeholder="your@email.com"
+                className="bg-slate-100 dark:bg-slate-800/50 border-slate-300/50 dark:border-slate-600/30 rounded-xl font-helvetica"
               />
             </div>
-            <button
+            <Textarea
+              id="message"
+              name="message"
+              label="Message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              rows={4}
+              placeholder="Your message..."
+              className="bg-slate-100 dark:bg-slate-800/50 border-slate-300/50 dark:border-slate-600/30 rounded-xl font-helvetica resize-none"
+            />
+            <Button
               type="submit"
-              disabled={isSubmitting}
-              className="w-full sm:w-auto px-8 py-3 btn-gradient-shimmer font-semibold rounded-xl focus:outline-none focus:ring-2 focus:ring-portfolio/50"
+              variant="primary"
+              size="lg"
+              loading={isSubmitting}
+              className="w-full sm:w-auto px-8"
             >
-              {isSubmitting ? (
-                <span className="flex items-center justify-center">
-                  <svg
-                    className="animate-spin -ml-1 mr-3 h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    />
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    />
-                  </svg>
-                  Sending...
-                </span>
-              ) : (
-                "Send Message"
-              )}
-            </button>
+              Send Message
+            </Button>
           </form>
         </div>
       </div>

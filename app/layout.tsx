@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import AnimatedSphereBackground from "@/components/AnimatedSphereBackground";
 import ScrollToTop from "@/components/ScrollToTop";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const dreams = localFont({
   src: [
@@ -138,6 +139,10 @@ export default function RootLayout({
       >
         <AnimatedSphereBackground />
         <ScrollToTop />
+        {/* Theme Toggle - Fixed Top Right */}
+        <div className="fixed top-6 right-6 z-30">
+          <ThemeToggle />
+        </div>
         <div className="relative z-10 mx-auto min-h-screen px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
           <div className="lg:flex lg:justify-between lg:gap-8 lg:max-w-7xl lg:mx-auto">
             {children}

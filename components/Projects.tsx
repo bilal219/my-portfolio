@@ -7,7 +7,7 @@ export default function Projects() {
 
   return (
     <section id="projects" aria-label="Selected projects">
-      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0 backdrop-blur-md bg-portfolio/10 border-b border-portfolio/20">
+      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-7 md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0 backdrop-blur-md ">
         <h2 className="text-[6px] font-bold uppercase tracking-widest text-slate-700 dark:text-slate-200 lg:sr-only font-dreams leading-[4]">
           Projects
         </h2>
@@ -40,9 +40,7 @@ export default function Projects() {
                             className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
                             aria-hidden="true"
                           >
-                            <path
-                              d="M5 12h14m-7-7 7 7-7 7"
-                            />
+                            <path d="M5 12h14m-7-7 7 7-7 7" />
                           </svg>
                         </span>
                       </span>
@@ -60,14 +58,27 @@ export default function Projects() {
                         rel="noreferrer noopener"
                         aria-label={`View ${project.title} live demo (opens in a new tab)`}
                       >
-                        <svg className="mr-1 h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        <svg
+                          className="mr-1 h-3 w-3"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
                         </svg>
                         Live Demo
                       </a>
                     )}
                   </div>
-                  <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
+                  <ul
+                    className="mt-2 flex flex-wrap"
+                    aria-label="Technologies used"
+                  >
                     {project.technologies.map((tech) => (
                       <li key={tech} className="mr-1.5 mt-2">
                         <div className="flex items-center rounded-full bg-portfolio/10 px-3 py-1 text-xs font-medium leading-5 text-portfolio">
@@ -97,7 +108,7 @@ export default function Projects() {
             aria-label="View all projects"
           >
             <span>
-              View Full{' '}
+              View Full{" "}
               <span className="inline-block">
                 Project Archive
                 <svg

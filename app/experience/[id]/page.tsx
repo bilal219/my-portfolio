@@ -80,29 +80,31 @@ export default async function ExperiencePage({ params }: ExperiencePageProps) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WorkExperience",
-            "name": experience.position,
-            "description": experience.description,
-            "employer": {
+            name: experience.position,
+            description: experience.description,
+            employer: {
               "@type": "Organization",
-              "name": experience.company,
-              "address": {
+              name: experience.company,
+              address: {
                 "@type": "PostalAddress",
-                "addressLocality": experience.location
-              }
+                addressLocality: experience.location,
+              },
             },
-            "startDate": experience.period.split(" — ")[0],
-            "endDate": experience.period.includes("Present") ? new Date().getFullYear().toString() : experience.period.split(" — ")[1],
-            "employee": {
+            startDate: experience.period.split(" — ")[0],
+            endDate: experience.period.includes("Present")
+              ? new Date().getFullYear().toString()
+              : experience.period.split(" — ")[1],
+            employee: {
               "@type": "Person",
-              "name": "Muhammad Bilal Yousaf",
-              "jobTitle": "Full Stack Developer"
+              name: "Muhammad Bilal Yousaf",
+              jobTitle: "Full Stack Developer",
             },
-            "skills": experience.technologies
-          })
+            skills: experience.technologies,
+          }),
         }}
       />
 
-      <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
+      <div className="mx-auto min-h-screen max-w-screen-xl  md:px-12 md:py-20 lg:px-24 lg:py-0">
         <div className="lg:py-24">
           {/* Breadcrumb Navigation */}
           <nav className="mb-8" aria-label="Breadcrumb">
@@ -125,7 +127,10 @@ export default async function ExperiencePage({ params }: ExperiencePageProps) {
                 </Link>
               </li>
               <li className="text-slate-600">/</li>
-              <li className="text-slate-800 dark:text-slate-200" aria-current="page">
+              <li
+                className="text-slate-800 dark:text-slate-200"
+                aria-current="page"
+              >
                 {experience.company}
               </li>
             </ol>
@@ -147,8 +152,8 @@ export default async function ExperiencePage({ params }: ExperiencePageProps) {
               className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1"
               aria-hidden="true"
             >
-              <path d="m12 19-7-7 7-7"/>
-              <path d="M19 12H5"/>
+              <path d="m12 19-7-7 7-7" />
+              <path d="M19 12H5" />
             </svg>
             Back to Experience
           </Link>
@@ -158,19 +163,19 @@ export default async function ExperiencePage({ params }: ExperiencePageProps) {
             <h1 className="text-4xl font-bold tracking-tight text-slate-800 dark:text-slate-200 sm:text-5xl mb-4">
               {experience.position}
             </h1>
-            
+
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
-              <div className="flex items-center text-portfolio text-xl font-semibold">
+              <div className="flex items-center text-portfolio font-semibold">
                 <Building2 className="w-5 h-5 mr-2" />
                 {experience.company}
               </div>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 text-slate-600 dark:text-slate-400">
                 <div className="flex items-center">
                   <Calendar className="w-4 h-4 mr-2" />
                   <time>{experience.period}</time>
                 </div>
-                
+
                 {experience.location && (
                   <div className="flex items-center">
                     <MapPin className="w-4 h-4 mr-2" />
@@ -180,20 +185,26 @@ export default async function ExperiencePage({ params }: ExperiencePageProps) {
               </div>
             </div>
 
-            <p className="text-xl leading-normal text-slate-700 dark:text-slate-300 max-w-4xl">
+            <p className="leading-normal text-slate-700 dark:text-slate-300 max-w-4xl">
               {experience.description}
             </p>
           </header>
 
           {/* Technologies Section */}
           <section className="mb-12" aria-labelledby="technologies-heading">
-            <h2 id="technologies-heading" className="text-2xl font-bold tracking-tight text-slate-800 dark:text-slate-200 mb-6">
+            <h2
+              id="technologies-heading"
+              className="text-2xl font-bold tracking-tight text-slate-800 dark:text-slate-200 mb-6"
+            >
               Technologies & Tools
             </h2>
-            <ul className="flex flex-wrap gap-3" aria-label="Technologies used in this role">
+            <ul
+              className="flex flex-wrap gap-3"
+              aria-label="Technologies used in this role"
+            >
               {experience.technologies.map((tech) => (
                 <li key={tech}>
-                  <div className="flex items-center rounded-full bg-portfolio/10 px-4 py-2 text-sm font-medium leading-5 text-portfolio border border-portfolio/20">
+                  <div className="flex items-center rounded-full bg-portfolio/10 px-3 py-1.5 text-xs font-medium leading-4 text-portfolio border border-portfolio/20">
                     {tech}
                   </div>
                 </li>
@@ -204,68 +215,89 @@ export default async function ExperiencePage({ params }: ExperiencePageProps) {
           {/* Journey Timeline */}
           {experience.timeline && experience.timeline.length > 0 && (
             <section className="mb-12" aria-labelledby="timeline-heading">
-              <h2 id="timeline-heading" className="text-2xl font-bold tracking-tight text-slate-800 dark:text-slate-200 mb-6">
+              <h2
+                id="timeline-heading"
+                className="text-2xl font-bold tracking-tight text-slate-800 dark:text-slate-200 mb-6"
+              >
                 Career Journey at {experience.company}
               </h2>
-              <div className="p-8">
-                <Timeline 
-                  items={experience.timeline.map(item => ({
-                    ...item,
-                    type: 'work' as const
-                  }))} 
-                />
-              </div>
+              <Timeline
+                items={experience.timeline.map((item) => ({
+                  ...item,
+                  type: "work" as const,
+                }))}
+              />
             </section>
           )}
 
           {/* Key Achievements */}
           {experience.achievements && experience.achievements.length > 0 && (
             <section className="mb-12" aria-labelledby="achievements-heading">
-              <h2 id="achievements-heading" className="text-2xl font-bold tracking-tight text-slate-800 dark:text-slate-200 mb-6">
+              <h2
+                id="achievements-heading"
+                className="text-2xl font-bold tracking-tight text-slate-800 dark:text-slate-200 mb-6"
+              >
                 Key Achievements & Contributions
               </h2>
-              <div className="p-8">
-                <ul className="space-y-4">
-                  {experience.achievements.map((achievement, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="flex-shrink-0 w-2 h-2 bg-portfolio rounded-full mt-2.5 mr-4"></span>
-                      <p className="text-slate-700 dark:text-slate-300 leading-relaxed">{achievement}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <ul className="space-y-4">
+                {experience.achievements.map((achievement, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="flex-shrink-0 w-2 h-2 bg-portfolio rounded-full mt-2.5 mr-4"></span>
+                    <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                      {achievement}
+                    </p>
+                  </li>
+                ))}
+              </ul>
             </section>
           )}
 
           {/* Role Overview */}
           <section className="mb-12" aria-labelledby="overview-heading">
-            <h2 id="overview-heading" className="text-2xl font-bold tracking-tight text-slate-800 dark:text-slate-200 mb-6">
+            <h2
+              id="overview-heading"
+              className="text-2xl font-bold tracking-tight text-slate-800 dark:text-slate-200 mb-6"
+            >
               Role Overview & Impact
             </h2>
-            <div className="prose prose-slate prose-invert max-w-none p-8">
-              <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-6">
-                During my tenure as {experience.position} at {experience.company}, I played a pivotal role in 
-                driving technical excellence and delivering innovative solutions that significantly impacted 
-                business objectives and user experiences.
+            <div className="prose prose-slate prose-invert max-w-none ">
+              <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-6">
+                During my tenure as {experience.position} at{" "}
+                {experience.company}, I played a pivotal role in driving
+                technical excellence and delivering innovative solutions that
+                significantly impacted business objectives and user experiences.
               </p>
-              
-              <h3 className="text-xl font-semibold text-slate-800 dark:text-slate-200 mt-8 mb-4">Core Responsibilities</h3>
+
+              <h3 className="font-semibold text-slate-800 dark:text-slate-200 mt-8 mb-4">
+                Core Responsibilities
+              </h3>
               <ul className="space-y-2 text-slate-700 dark:text-slate-300">
                 <li className="flex items-start">
                   <span className="flex-shrink-0 w-2 h-2 bg-portfolio rounded-full mt-2.5 mr-3"></span>
-                  <span>Full-stack application development using modern frameworks and technologies</span>
+                  <span>
+                    Full-stack application development using modern frameworks
+                    and technologies
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <span className="flex-shrink-0 w-2 h-2 bg-portfolio rounded-full mt-2.5 mr-3"></span>
-                  <span>Collaborative work with cross-functional teams to deliver high-quality solutions</span>
+                  <span>
+                    Collaborative work with cross-functional teams to deliver
+                    high-quality solutions
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <span className="flex-shrink-0 w-2 h-2 bg-portfolio rounded-full mt-2.5 mr-3"></span>
-                  <span>Code quality maintenance and implementation of best practices</span>
+                  <span>
+                    Code quality maintenance and implementation of best
+                    practices
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <span className="flex-shrink-0 w-2 h-2 bg-portfolio rounded-full mt-2.5 mr-3"></span>
-                  <span>Performance optimization and scalability improvements</span>
+                  <span>
+                    Performance optimization and scalability improvements
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <span className="flex-shrink-0 w-2 h-2 bg-portfolio rounded-full mt-2.5 mr-3"></span>
@@ -273,12 +305,16 @@ export default async function ExperiencePage({ params }: ExperiencePageProps) {
                 </li>
               </ul>
 
-              <h3 className="text-xl font-semibold text-slate-800 dark:text-slate-200 mt-8 mb-4">Professional Growth</h3>
+              <h3 className="font-semibold text-slate-800 dark:text-slate-200 mt-8 mb-4">
+                Professional Growth
+              </h3>
               <p className="text-slate-700 dark:text-slate-300">
-                This role provided invaluable opportunities to expand technical expertise, develop leadership skills, 
-                and contribute to meaningful projects that solved real-world problems. The experience enhanced my 
-                ability to work in fast-paced environments while maintaining high standards of code quality and 
-                professional excellence.
+                This role provided invaluable opportunities to expand technical
+                expertise, develop leadership skills, and contribute to
+                meaningful projects that solved real-world problems. The
+                experience enhanced my ability to work in fast-paced
+                environments while maintaining high standards of code quality
+                and professional excellence.
               </p>
             </div>
           </section>

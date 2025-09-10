@@ -168,7 +168,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           {/* Project Header */}
           <header className="mb-12">
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
               <h1 className="text-4xl font-bold tracking-tight text-slate-800 dark:text-slate-200 sm:text-5xl">
                 {project.title}
               </h1>
@@ -187,7 +187,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </div>
             )}
 
-            <p className="mt-6 text-xl leading-normal text-slate-700 dark:text-slate-300 max-w-3xl">
+            <p className="mt-6 leading-normal text-slate-700 dark:text-slate-300 max-w-3xl">
               {project.description}
             </p>
 
@@ -251,7 +251,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             >
               {project.technologies.map((tech) => (
                 <li key={tech}>
-                  <div className="flex items-center rounded-full bg-portfolio/10 px-4 py-2 text-sm font-medium leading-5 text-portfolio border border-portfolio/20">
+                  <div className="flex items-center rounded-full bg-portfolio/10 px-3 py-1.5 text-xs font-medium leading-4 text-portfolio border border-portfolio/20">
                     {tech}
                   </div>
                 </li>
@@ -288,7 +288,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               Project Overview
             </h2>
             <div className="prose prose-slate prose-invert max-w-none p-0 md:p-8">
-              <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+              <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
                 This project represents a comprehensive solution built with
                 modern web development practices, focusing on performance,
                 scalability, and user experience. The implementation
@@ -296,7 +296,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 to industry best practices.
               </p>
 
-              <h3 className="text-xl font-semibold text-slate-800 dark:text-slate-200 mt-8 mb-4">
+              <h3 className="font-semibold text-slate-800 dark:text-slate-200 mt-8 mb-4">
                 Key Features
               </h3>
               <ul className="space-y-2 text-slate-700 dark:text-slate-300">
@@ -335,7 +335,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </li>
               </ul>
 
-              <h3 className="text-xl font-semibold text-slate-800 dark:text-slate-200 mt-8 mb-4">
+              <h3 className="font-semibold text-slate-800 dark:text-slate-200 mt-8 mb-4">
                 Technical Implementation
               </h3>
               <p className="text-slate-700 dark:text-slate-300">

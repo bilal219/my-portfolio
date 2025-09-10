@@ -1,8 +1,8 @@
 export default function About() {
   return (
     <section id="about" aria-label="About me">
-      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0 backdrop-blur-md bg-portfolio/10 border-b border-portfolio/20">
-        <h2 className="text-[4px] font-bold uppercase tracking-widest text-slate-800 dark:text-slate-200 lg:sr-only font-dreams leading-[4]">
+      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-7 md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0 backdrop-blur-md ">
+        <h2 className="text-[6px] font-bold uppercase tracking-widest text-slate-800 dark:text-slate-200 lg:sr-only font-dreams leading-[4]">
           About
         </h2>
       </div>

@@ -21,9 +21,14 @@ export const socialLinks = [
     icon: "linkedin"
   },
   {
-    name: "Email",
-    url: "mailto:bilalmughal1309@gmail.com",
-    icon: "email"
+    name: "X",
+    url: "https://x.com/bilal_yousaf_dev",
+    icon: "x"
+  },
+  {
+    name: "Instagram",
+    url: "https://instagram.com/bilal_yousaf_dev",
+    icon: "instagram"
   }
 ];
 
