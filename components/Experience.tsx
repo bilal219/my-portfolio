@@ -22,22 +22,22 @@ export default function Experience() {
                   {experience.period}
                 </header>
                 <div className="z-10 sm:col-span-6">
-                  <h3 className="font-medium leading-snug text-slate-800 dark:text-slate-100">
-                    <Link
-                      href={`/experience/${experience.id}`}
-                      className="inline-flex items-baseline font-medium leading-tight hover:text-portfolio focus-visible:text-portfolio group/link transition-colors"
-                      aria-label={`View details about ${experience.position} at ${experience.company}`}
-                    >
-                      <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                      <span>{experience.position}</span>
-                    </Link>
-                  </h3>
-                  <h4 className="mt-1 text-sm font-medium leading-normal text-portfolio">
-                    {experience.company}
-                  </h4>
-                  <p className="mt-2 text-sm leading-normal text-slate-600 dark:text-slate-300">
-                    {experience.location}
-                  </p>
+                  <Link
+                    href={`/experience/${experience.id}`}
+                    className="block group/link"
+                    aria-label={`View details about ${experience.position} at ${experience.company}`}
+                  >
+                    <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                    <h3 className="font-medium leading-snug text-slate-800 dark:text-slate-100 group-hover/link:text-portfolio transition-colors">
+                      {experience.position}
+                    </h3>
+                    <h4 className="mt-1 text-sm font-medium leading-normal text-portfolio">
+                      {experience.company}
+                    </h4>
+                    <p className="mt-2 text-sm leading-normal text-slate-600 dark:text-slate-300">
+                      {experience.location}
+                    </p>
+                  </Link>
                   <p className="mt-2 text-sm leading-normal font-helvetica text-slate-600 dark:text-slate-400">
                     {experience.description}
                   </p>
