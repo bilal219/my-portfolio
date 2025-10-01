@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   keywords: [
     "Muhammad Bilal Yousaf",
     "Full Stack Developer",
-    "Next.js Developer", 
+    "Next.js Developer",
     "React Developer",
     "Node.js Developer",
     "JavaScript Developer",
@@ -61,12 +61,14 @@ export const metadata: Metadata = {
     "Responsive Web Design",
     "Progressive Web Apps",
     "Frontend Engineer",
-    "Backend Engineer"
+    "Backend Engineer",
   ].join(", "),
-  authors: [{ 
-    name: "Muhammad Bilal Yousaf",
-    url: "https://bilal-yousaf-portfolio.vercel.app"
-  }],
+  authors: [
+    {
+      name: "Muhammad Bilal Yousaf",
+      url: "https://bilal-yousaf-portfolio.vercel.app",
+    },
+  ],
   creator: "Muhammad Bilal Yousaf",
   publisher: "Muhammad Bilal Yousaf",
   formatDetection: {
@@ -75,7 +77,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Muhammad Bilal Yousaf | Full Stack Developer Portfolio",
+    title: "Muhammad Bilal Yousaf | Full Stack Developer",
     description:
       "Full Stack Developer with 3+ years experience building scalable SaaS applications. Expert in Next.js, React, Node.js, and modern web technologies.",
     url: "https://bilal-yousaf-portfolio.vercel.app",
