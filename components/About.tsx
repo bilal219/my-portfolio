@@ -8,79 +8,30 @@ export default function About() {
       </div>
       <div className="font-helvetica relative">
         <p className="mb-6 text-slate-700 dark:text-slate-300">
-          I&apos;m a dedicated Full Stack Developer with{" "}
           <strong className="text-slate-900 dark:text-slate-100">
-            3+ years of professional experience
+            Full-Stack Developer
           </strong>{" "}
-          specializing in building scalable SaaS applications. My journey began
-          as an intern at{" "}
-          <a
-            className="font-medium text-slate-800 dark:text-slate-100 hover:text-portfolio focus-visible:text-portfolio transition-colors duration-200"
-            href="https://pos.technicmentors.com/"
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-label="Technic Mentors (opens in a new tab)"
-          >
-            Technic Mentors
-          </a>
-          , where I rapidly advanced to junior developer while contributing to a
-          comprehensive POS system. Currently serving as a{" "}
+          with{" "}
           <strong className="text-slate-900 dark:text-slate-100">
-            Full Stack Software Engineer at GTek Solutions
-          </strong>
-          , I develop enterprise-grade solutions for diverse industries
-          including{" "}
-          <a
-            className="font-medium text-slate-800 dark:text-slate-200 hover:text-portfolio focus-visible:text-portfolio transition-colors duration-200"
-            href="https://fbresearch.org/"
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-label="biomedical research (opens in a new tab)"
-          >
-            biomedical research
-          </a>
-          ,{" "}
-          <a
-            className="font-medium text-slate-800 dark:text-slate-200 hover:text-portfolio focus-visible:text-portfolio transition-colors duration-200"
-            href="https://app.homeschoolpanda.com/"
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-label="educational technology (opens in a new tab)"
-          >
-            educational technology
-          </a>
-          , and{" "}
-          <a
-            className="font-medium text-slate-800 dark:text-slate-200 hover:text-portfolio focus-visible:text-portfolio transition-colors duration-200"
-            href="https://www.newwavecarwash.com/"
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-label="service automation (opens in a new tab)"
-          >
-            service automation
-          </a>
-          .
-        </p>
-        <p className="text-slate-700 dark:text-slate-300">
-          My expertise spans the entire development lifecycle using modern
-          technologies including{" "}
+            3+ years of experience
+          </strong>{" "}
+          delivering scalable SaaS applications using{" "}
           <span className="text-portfolio font-medium">
-            Next.js, React, Node.js, Express, MongoDB, and advanced state
-            management with Recoil
+            React, Next.js, Node.js, and MongoDB
           </span>
-          . I specialize in{" "}
+          . Skilled in{" "}
           <span className="text-portfolio font-medium">
-            Stripe payment integration
+            secure storage, AI-powered search, and Stripe payment systems
           </span>
-          , authentication systems, REST APIs, GraphQL, and creating responsive
-          UIs with{" "}
+          . Experienced in{" "}
           <span className="text-portfolio font-medium">
-            Tailwind CSS and SASS
+            Vue.js, Strapi, GraphQL, and AWS
           </span>
-          . I&apos;m passionate about writing clean, efficient code and
-          delivering high-impact projects that solve real-world problems. When
-          I&apos;m not coding, I&apos;m exploring new technologies and eager to
-          learn emerging trends in web development.
+          . Strong focus on building{" "}
+          <strong className="text-slate-900 dark:text-slate-100">
+            maintainable, high-performance solutions
+          </strong>{" "}
+          and collaborating effectively with clients and cross-functional teams.
         </p>
       </div>
     </section>

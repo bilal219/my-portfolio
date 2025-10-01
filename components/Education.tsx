@@ -28,7 +28,7 @@ export default function Education() {
               {education.institution}
             </h4>
             <p className="mt-2 text-sm leading-normal text-slate-600 dark:text-slate-300">
-              Located in {education.location}
+              {education.location}
             </p>
           </div>
         </div>

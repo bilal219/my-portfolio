@@ -123,16 +123,17 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <script dangerouslySetInnerHTML={{
-          __html: `
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
             (function() {
               const stored = localStorage.getItem('theme');
-              const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-              const isDark = stored ? stored === 'dark' : prefersDark;
+              const isDark = stored ? stored === 'dark' : true;
               if (isDark) document.documentElement.classList.add('dark');
             })();
-          `
-        }} />
+          `,
+          }}
+        />
       </head>
       <body
         className={`${dreams.variable} ${helvetica.variable} bg-slate-50 dark:bg-slate-900 antialiased selection:bg-portfolio selection:text-slate-900 relative overflow-x-hidden transition-colors duration-300 text-content`}
@@ -143,8 +144,8 @@ export default function RootLayout({
         <div className="fixed top-6 right-6 z-30">
           <ThemeToggle />
         </div>
-        <div className="relative z-10 mx-auto min-h-screen px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
-          <div className="lg:flex lg:justify-between lg:gap-8 lg:max-w-7xl lg:mx-auto">
+        <div className="relative z-10 mx-auto min-h-screen px-6 py-12 md:px-12 md:py-20 lg:px-20 lg:py-0">
+          <div className="lg:flex lg:justify-between lg:gap-8 xl:gap-12 lg:max-w-7xl lg:mx-auto">
             {children}
           </div>
         </div>
