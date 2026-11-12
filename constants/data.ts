@@ -32,11 +32,11 @@ export const navigation = [
   { name: "Contact", href: "#contact" },
 ];
 
-// Same groups and wording as the CV so ATS keyword matching lines up.
+// Grouped so every item sits under the heading it belongs to.
 export const skills: { title: string; items: string[] }[] = [
   {
     title: "Languages",
-    items: ["JavaScript", "TypeScript", "C#", "PHP", "SQL", "HTML5", "CSS3"],
+    items: ["TypeScript", "JavaScript", "C#", "PHP", "SQL"],
   },
   {
     title: "Frontend",
@@ -47,10 +47,11 @@ export const skills: { title: string; items: string[] }[] = [
       "Vue.js",
       "Recoil",
       "Tailwind CSS",
-      "Ant Design",
       "shadcn/ui",
+      "Ant Design",
       "SASS",
-      "Bootstrap",
+      "HTML5",
+      "CSS3",
     ],
   },
   {
@@ -60,48 +61,37 @@ export const skills: { title: string; items: string[] }[] = [
       "Express.js",
       "NestJS",
       "ASP.NET Core Web API",
-      "Strapi CMS",
       "Laravel",
+      "Strapi CMS",
       "RESTful APIs",
       "GraphQL",
-      "Webhooks",
-      "JWT",
-      "OAuth",
+      "JWT & OAuth",
     ],
   },
   {
     title: "Databases",
-    items: ["MongoDB", "MySQL", "PostgreSQL", "SQL Server"],
+    items: ["PostgreSQL", "MongoDB", "MySQL", "SQL Server"],
   },
   {
-    title: "AI & Security",
+    title: "Payments & Security",
     items: [
-      "AI-Powered Search",
-      "Prompt-Based Querying",
+      "Stripe Billing",
+      "Stripe Webhooks",
       "Fully Homomorphic Encryption (FHE)",
-      "Data Encryption",
-      "Access Control",
+      "Role-Based Access Control",
     ],
   },
   {
-    title: "Payments",
-    items: ["Stripe Subscriptions", "One-Time Payments", "Cancellations", "Stripe Webhooks"],
+    title: "AI",
+    items: ["AI-Powered Search", "Cursor", "Claude"],
   },
   {
     title: "Cloud & DevOps",
-    items: [
-      "AWS (EC2, S3)",
-      "Docker",
-      "CI/CD",
-      "PM2",
-      "cPanel",
-      "Git",
-      "Agile/Scrum",
-      "Figma",
-      "Adobe XD",
-      "Cursor",
-      "Claude",
-    ],
+    items: ["AWS (EC2, S3)", "Docker", "CI/CD", "PM2", "Git"],
+  },
+  {
+    title: "Design & Process",
+    items: ["Figma", "Adobe XD", "Agile/Scrum"],
   },
 ];
 

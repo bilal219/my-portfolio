@@ -12,26 +12,54 @@ const BRAND_ICONS = {
 };
 
 export default function Navigation() {
-  const [activeSection, setActiveSection] = useState("");
+  const [activeSection, setActiveSection] = useState(
+    navigation[0].href.slice(1)
+  );
 
+  // Highlight the last section whose top has passed the upper third of the
+  // viewport. Pinning the first and last sections at the page edges keeps a
+  // short section (About at the top, Contact at the bottom) from being skipped
+  // on tall screens.
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        rootMargin: "-50% 0px -50% 0px",
+    const ids = navigation.map((item) => item.href.slice(1));
+    let frame = 0;
+
+    const update = () => {
+      frame = 0;
+      const atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+      if (atBottom) {
+        setActiveSection(ids[ids.length - 1]);
+        return;
       }
-    );
 
-    const sections = document.querySelectorAll("section[id]");
-    sections.forEach((section) => observer.observe(section));
+      if (window.scrollY < 80) {
+        setActiveSection(ids[0]);
+        return;
+      }
 
-    return () => observer.disconnect();
+      const threshold = Math.min(window.innerHeight * 0.33, 320);
+      let current = ids[0];
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= threshold) current = id;
+      }
+      setActiveSection(current);
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
 
