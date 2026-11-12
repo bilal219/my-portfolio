@@ -1,5 +1,8 @@
-import { experiences } from '@/constants/data';
-import Link from 'next/link';
+import Link from "next/link";
+import { experiences } from "@/constants/data";
+import ExperienceList from "@/components/ExperienceList";
+
+const HOME_LIMIT = 3;
 
 export default function Experience() {
   return (
@@ -10,61 +13,13 @@ export default function Experience() {
         </h2>
       </div>
       <div>
-        <ol className="group/list">
-          {experiences.map((experience, index) => (
-            <li key={index} className="mb-12">
-              <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block"></div>
-                <header
-                  className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400 sm:col-span-2"
-                  aria-label={experience.period}
-                >
-                  {experience.period}
-                </header>
-                <div className="z-10 sm:col-span-6">
-                  <Link
-                    href={`/experience/${experience.id}`}
-                    className="block group/link"
-                    aria-label={`View details about ${experience.position} at ${experience.company}`}
-                  >
-                    <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                    <h3 className="font-medium leading-snug text-slate-800 dark:text-slate-100 group-hover/link:text-portfolio transition-colors">
-                      {experience.position}
-                    </h3>
-                    <h4 className="mt-1 text-sm font-medium leading-normal text-portfolio">
-                      {experience.company}
-                    </h4>
-                    <p className="mt-2 text-sm leading-normal text-slate-600 dark:text-slate-300">
-                      {experience.location}
-                    </p>
-                  </Link>
-                  <p className="mt-2 text-sm leading-normal font-helvetica text-slate-600 dark:text-slate-400">
-                    {experience.description}
-                  </p>
-                  <ul
-                    className="mt-2 flex flex-wrap"
-                    aria-label="Technologies used"
-                  >
-                    {experience.technologies.map((tech) => (
-                      <li key={tech} className="mr-1.5 mt-2">
-                        <div className="flex items-center rounded-full bg-portfolio/10 px-3 py-1 text-xs font-medium leading-5 text-portfolio">
-                          {tech}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ol>
-        <div className="mt-12">
-          <a
-            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-portfolio px-6 text-sm font-semibold text-white shadow-lg shadow-portfolio/25 transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-portfolio group/link"
-            href="/Muhammad-Bilal-Yousaf-Resume.pdf"
-            download="Muhammad-Bilal-Yousaf-Resume.pdf"
-            aria-label="Download résumé (PDF)"
+        <ExperienceList items={experiences.slice(0, HOME_LIMIT)} />
+        {experiences.length > HOME_LIMIT && (
+          <Link
+            href="/experience"
+            className="group/link inline-flex items-center font-semibold leading-tight text-slate-800 transition-colors hover:text-portfolio focus-visible:text-portfolio dark:text-white"
           >
+            View Full Experience
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -73,14 +28,13 @@ export default function Experience() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="h-4 w-4 transition-transform group-hover/link:translate-y-0.5 motion-reduce:transition-none"
+              className="ml-1.5 h-4 w-4 transition-transform group-hover/link:translate-x-1 motion-reduce:transition-none"
               aria-hidden="true"
             >
-              <path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14" />
+              <path d="M5 12h14m-7-7 7 7-7 7" />
             </svg>
-            Download Résumé
-          </a>
-        </div>
+          </Link>
+        )}
       </div>
     </section>
   );

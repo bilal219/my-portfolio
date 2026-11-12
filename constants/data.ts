@@ -118,6 +118,7 @@ export const skills: { title: string; items: string[] }[] = [
 export const experiences = [
   {
     id: "eas-solution",
+    logo: "/assets/companies/eas-solution.webp",
     company: "EAS Solution",
     position: "Full Stack Software Engineer",
     period: "May 2026 — Present",
@@ -157,6 +158,7 @@ export const experiences = [
   },
   {
     id: "crewlogix-technologies",
+    logo: "/assets/companies/crewlogix.webp",
     company: "Crewlogix Technologies",
     position: "Full Stack Software Engineer",
     period: "Jun 2025 — May 2026",
@@ -207,6 +209,7 @@ export const experiences = [
   },
   {
     id: "gtek-solutions",
+    logo: "/assets/companies/gtek-solutions.webp",
     company: "GTek Solutions",
     position: "Full Stack Software Engineer",
     period: "Nov 2022 — Jun 2025",
@@ -275,6 +278,7 @@ export const experiences = [
   },
   {
     id: "technic-mentors",
+    logo: "/assets/companies/technic-mentors.webp",
     company: "Technic Mentors",
     position: "Full Stack Developer",
     period: "Jul 2021 — Nov 2022",
@@ -350,84 +354,6 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  {
-    id: "h33-ai",
-    title: "H33",
-    description:
-      "Secure storage SaaS. I owned file and folder management, built the AI-powered search, and added Fully Homomorphic Encryption (FHE) for stored files.",
-    overview:
-      "H33 is a cybersecurity platform focused on post-quantum security and AI governance. I worked on its secure storage product, where users upload, share, and search files that stay encrypted.",
-    role: "Full Stack Software Engineer",
-    image: "/assets/projects/h33-ai.webp",
-    technologies: [
-      "Next.js",
-      "Vue.js",
-      "React",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "FHE",
-      "AI-Powered Search",
-      "Tailwind CSS",
-    ],
-    contributions: [
-      "Owned file and folder management end to end: uploads, sharing, permission controls, and custom actions",
-      "Built AI-powered search with prompt-based and suggestion-based querying",
-      "Scoped search results with access control, so users only see files they are allowed to see",
-      "Added Fully Homomorphic Encryption (FHE) alongside standard encryption for stored files and folders",
-      "Optimized storage modules for stability and performance",
-      "Learned Vue.js on the job to work across the frontend",
-    ],
-    highlights: [
-      { label: "Encryption", value: "FHE" },
-      { label: "Search", value: "AI-powered" },
-      { label: "Ownership", value: "End to end" },
-    ],
-    demo: "https://h33.ai/",
-    featured: true,
-    company: "Crewlogix Technologies",
-    year: "2025 — 2026",
-    timeline: [
-      {
-        date: "Jun 2025",
-        title: "File and folder management",
-        description: "Uploads, sharing, permissions, and custom actions.",
-      },
-      {
-        date: "Jul 2025 — Aug 2025",
-        title: "Encryption",
-        description: "FHE plus standard encryption for stored data.",
-      },
-      {
-        date: "Sep 2025 — May 2026",
-        title: "AI search and tuning",
-        description:
-          "Prompt-based and suggestion-based search with per-user access control, plus storage performance work.",
-      },
-    ],
-  },
-  {
-    id: "sealpact",
-    title: "SealPact",
-    description:
-      "SaaS platform for engineering document stamping, with automated page splitting and AI-assisted document management.",
-    overview:
-      "SealPact lets architects and engineers sign and seal drawings and documents digitally, then keep control of them after they are issued. The web app handles uploading, splitting, sealing, and managing those documents.",
-    role: "Full Stack Software Engineer",
-    image: "/assets/projects/sealpact.webp",
-    technologies: ["React", "JavaScript", "RESTful APIs", "AI Document Management"],
-    contributions: [
-      "Worked on the document stamping flow used by design professionals",
-      "Built automated page splitting so multi-page uploads become individual sealable sheets",
-      "Worked on AI-assisted document management features",
-    ],
-    highlights: [
-      { label: "Domain", value: "e-Seals" },
-      { label: "Users", value: "Engineers & architects" },
-    ],
-    demo: "https://sealpact.com/",
-    featured: true,
-  },
   {
     id: "home-school-panda",
     title: "Home School Panda",
@@ -531,6 +457,115 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "sealpact",
+    title: "SealPact",
+    description:
+      "SaaS platform for engineering document stamping, with automated page splitting and AI-assisted document management.",
+    overview:
+      "SealPact lets architects and engineers sign and seal drawings and documents digitally, then keep control of them after they are issued. The web app handles uploading, splitting, sealing, and managing those documents.",
+    role: "Full Stack Software Engineer",
+    image: "/assets/projects/sealpact.webp",
+    technologies: ["React", "JavaScript", "RESTful APIs", "AI Document Management"],
+    contributions: [
+      "Worked on the document stamping flow used by design professionals",
+      "Built automated page splitting so multi-page uploads become individual sealable sheets",
+      "Worked on AI-assisted document management features",
+    ],
+    highlights: [
+      { label: "Domain", value: "e-Seals" },
+      { label: "Users", value: "Engineers & architects" },
+    ],
+    demo: "https://sealpact.com/",
+    featured: true,
+  },
+  {
+    id: "fbr-research",
+    title: "Foundation for Biomedical Research",
+    description:
+      "Nonprofit website with Stripe-powered donations. Built with Next.js and Recoil.",
+    overview:
+      "FBR educates the public on the role of animal research in medical progress. The site publishes programs, news, and stories, and takes online donations.",
+    role: "Full Stack Developer",
+    image: "/assets/projects/fbr-research.webp",
+    technologies: ["Next.js", "React", "Recoil", "Stripe", "Node.js", "RESTful APIs", "Tailwind CSS"],
+    contributions: [
+      "Built the site with Next.js and Recoil",
+      "Integrated Stripe for one-time and recurring donations",
+    ],
+    demo: "https://fbresearch.org/",
+    featured: true,
+    company: "GTek Solutions",
+    year: "2022 — 2023",
+    timeline: [
+      {
+        date: "Dec 2022",
+        title: "Build",
+        description: "Started the Next.js site and Stripe integration.",
+      },
+      {
+        date: "Feb 2023",
+        title: "Launch",
+        description: "Shipped the site with donations live.",
+      },
+    ],
+  },
+  {
+    id: "h33-ai",
+    title: "H33",
+    description:
+      "Secure storage SaaS. I owned file and folder management, built the AI-powered search, and added Fully Homomorphic Encryption (FHE) for stored files.",
+    overview:
+      "H33 is a cybersecurity platform focused on post-quantum security and AI governance. I worked on its secure storage product, where users upload, share, and search files that stay encrypted.",
+    role: "Full Stack Software Engineer",
+    image: "/assets/projects/h33-ai.webp",
+    technologies: [
+      "Next.js",
+      "Vue.js",
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "FHE",
+      "AI-Powered Search",
+      "Tailwind CSS",
+    ],
+    contributions: [
+      "Owned file and folder management end to end: uploads, sharing, permission controls, and custom actions",
+      "Built AI-powered search with prompt-based and suggestion-based querying",
+      "Scoped search results with access control, so users only see files they are allowed to see",
+      "Added Fully Homomorphic Encryption (FHE) alongside standard encryption for stored files and folders",
+      "Optimized storage modules for stability and performance",
+      "Learned Vue.js on the job to work across the frontend",
+    ],
+    highlights: [
+      { label: "Encryption", value: "FHE" },
+      { label: "Search", value: "AI-powered" },
+      { label: "Ownership", value: "End to end" },
+    ],
+    demo: "https://h33.ai/",
+    featured: false,
+    company: "Crewlogix Technologies",
+    year: "2025 — 2026",
+    timeline: [
+      {
+        date: "Jun 2025",
+        title: "File and folder management",
+        description: "Uploads, sharing, permissions, and custom actions.",
+      },
+      {
+        date: "Jul 2025 — Aug 2025",
+        title: "Encryption",
+        description: "FHE plus standard encryption for stored data.",
+      },
+      {
+        date: "Sep 2025 — May 2026",
+        title: "AI search and tuning",
+        description:
+          "Prompt-based and suggestion-based search with per-user access control, plus storage performance work.",
+      },
+    ],
+  },
+  {
     id: "prelabs",
     title: "PreLabs",
     description:
@@ -547,7 +582,7 @@ export const projects: Project[] = [
     ],
     highlights: [{ label: "Role", value: "Frontend lead" }],
     demo: "https://www.prelabs.com/",
-    featured: true,
+    featured: false,
     company: "GTek Solutions",
     year: "2023",
     timeline: [
@@ -578,38 +613,7 @@ export const projects: Project[] = [
       "Integrated third-party print and framing services for order fulfilment",
     ],
     highlights: [{ label: "Output", value: "Printed & framed" }],
-    featured: true,
-  },
-  {
-    id: "fbr-research",
-    title: "Foundation for Biomedical Research",
-    description:
-      "Nonprofit website with Stripe-powered donations. Built with Next.js and Recoil.",
-    overview:
-      "FBR educates the public on the role of animal research in medical progress. The site publishes programs, news, and stories, and takes online donations.",
-    role: "Full Stack Developer",
-    image: "/assets/projects/fbr-research.webp",
-    technologies: ["Next.js", "React", "Recoil", "Stripe", "Node.js", "RESTful APIs", "Tailwind CSS"],
-    contributions: [
-      "Built the site with Next.js and Recoil",
-      "Integrated Stripe for one-time and recurring donations",
-    ],
-    demo: "https://fbresearch.org/",
     featured: false,
-    company: "GTek Solutions",
-    year: "2022 — 2023",
-    timeline: [
-      {
-        date: "Dec 2022",
-        title: "Build",
-        description: "Started the Next.js site and Stripe integration.",
-      },
-      {
-        date: "Feb 2023",
-        title: "Launch",
-        description: "Shipped the site with donations live.",
-      },
-    ],
   },
   {
     id: "nabr-research",

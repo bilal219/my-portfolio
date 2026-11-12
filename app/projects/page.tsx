@@ -1,172 +1,87 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/constants/data";
 
 export const metadata: Metadata = {
-  title: "All Projects - Muhammad Bilal Yousaf",
+  title: "Projects | Muhammad Bilal Yousaf - Full Stack Software Engineer",
   description:
-    "A collection of projects showcasing frontend development expertise and modern web technologies.",
+    "Production projects by Muhammad Bilal Yousaf: secure storage, AI search, Stripe billing, and SaaS platforms built with React, Next.js, and Node.js.",
+  alternates: { canonical: "/projects" },
 };
 
 export default function ProjectsPage() {
   return (
-    <div
-      className="mx-auto min-h-screen max-w-screen-xl 
-      md:px-12 md:py-20 lg:px-24 lg:py-0"
-    >
-      <div className="lg:py-24">
-        <Link
-          href="/"
-          className="group mb-2 inline-flex items-center font-semibold leading-tight text-portfolio hover:text-slate-700 dark:hover:text-slate-200 transition-colors"
+    <div className="mx-auto w-full max-w-5xl pb-24 pt-8 lg:py-24">
+      <Link
+        href="/#projects"
+        className="group mb-6 inline-flex items-center text-sm font-semibold text-portfolio transition-colors hover:text-slate-700 dark:hover:text-slate-200"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="mr-1.5 h-4 w-4 transition-transform group-hover:-translate-x-1"
+          aria-hidden="true"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="mr-1 h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-2"
-            aria-hidden="true"
-          >
-            <path d="M5 12h14m-7-7 7 7-7 7" />
-          </svg>
-          Muhammad Bilal Yousaf
-        </Link>
+          <path d="M19 12H5m7 7-7-7 7-7" />
+        </svg>
+        Muhammad Bilal Yousaf
+      </Link>
 
-        <h1 className="text-4xl font-bold tracking-tight text-slate-800 dark:text-slate-200 sm:text-5xl">
-          All Projects
-        </h1>
+      <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-5xl">
+        Projects
+      </h1>
+      <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+        Products I&apos;ve built or worked on, from client websites to SaaS
+        platforms used by thousands of people.
+      </p>
 
-        <div className="mt-12">
-          <table className="mt-12 w-full border-collapse text-left">
-            <thead className="sticky top-0 z-10 border-b border-slate-200 dark:border-slate-300/10 px-6 py-5">
-              <tr>
-                <th className="py-4 pr-8 text-sm font-semibold text-slate-800 dark:text-slate-200">
-                  Year
-                </th>
-                <th className="py-4 pr-8 text-sm font-semibold text-slate-800 dark:text-slate-200">
-                  Project
-                </th>
-                <th className="hidden py-4 pr-8 text-sm font-semibold text-slate-800 dark:text-slate-200 lg:table-cell">
-                  Built with
-                </th>
-                <th className="hidden py-4 pr-8 text-sm font-semibold text-slate-800 dark:text-slate-200 sm:table-cell">
-                  Links
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {projects.map((project) => (
-                <tr
-                  key={project.id}
-                  className="border-b border-slate-200 dark:border-slate-300/10 last:border-none"
-                >
-                  <td className="py-4 pr-4 align-top text-sm">
-                    <div className="translate-y-px">2024</div>
-                  </td>
-                  <td className="py-4 pr-4 align-top font-semibold leading-snug text-slate-800 dark:text-slate-200">
-                    <div>
-                      <div className="block sm:hidden">
-                        <Link
-                          className="inline-flex items-baseline font-medium leading-tight text-slate-800 dark:text-slate-200 hover:text-portfolio focus-visible:text-portfolio"
-                          href={`/projects/${project.id}`}
-                          aria-label={`${project.title} (view project details)`}
-                        >
-                          <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                          <span>
-                            {project.title}
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 20 20"
-                              fill="currentColor"
-                              className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
-                              aria-hidden="true"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M5 12h14m-7-7 7 7-7 7"
-                                clipRule="evenodd"
-                              />
-                            </svg>
-                          </span>
-                        </Link>
-                      </div>
-                      <div className="hidden sm:block">
-                        <Link
-                          className="inline-flex items-baseline font-medium leading-tight text-slate-800 dark:text-slate-200 hover:text-portfolio focus-visible:text-portfolio"
-                          href={`/projects/${project.id}`}
-                        >
-                          {project.title}
-                        </Link>
-                      </div>
-                      <p className="mt-2 text-sm leading-normal text-slate-600 dark:text-slate-400">
-                        {project.description}
-                      </p>
-                      <ul
-                        className="mt-2 flex flex-wrap sm:hidden"
-                        aria-label="Technologies used"
-                      >
-                        {project.technologies.slice(0, 3).map((tech) => (
-                          <li key={tech} className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-portfolio/10 px-3 py-1 text-xs font-medium leading-5 text-portfolio">
-                              {tech}
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </td>
-                  <td className="hidden py-4 pr-4 align-top lg:table-cell">
-                    <ul className="flex -translate-y-1.5 flex-wrap">
-                      {project.technologies.map((tech) => (
-                        <li key={tech} className="my-1 mr-1.5">
-                          <div className="flex items-center rounded-full bg-portfolio/10 px-3 py-1 text-xs font-medium leading-5 text-portfolio">
-                            {tech}
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </td>
-                  <td className="hidden py-4 align-top sm:table-cell">
-                    <ul className="translate-y-1">
-                      {project.demo && (
-                        <li className="mb-1 flex items-center">
-                          <a
-                            className="inline-flex items-baseline font-medium leading-tight text-slate-600 dark:text-slate-400 hover:text-portfolio focus-visible:text-portfolio"
-                            href={project.demo}
-                            target="_blank"
-                            rel="noreferrer noopener"
-                            aria-label={`${project.title} live demo (opens in a new tab)`}
-                          >
-                            <span>
-                              <svg
-                                className="mr-1 h-3 w-3"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                />
-                              </svg>
-                              Demo
-                            </span>
-                          </a>
-                        </li>
-                      )}
-                    </ul>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project) => (
+          <li key={project.id}>
+            <Link
+              href={`/projects/${project.id}`}
+              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white/60 transition hover:-translate-y-1 hover:border-portfolio/40 hover:shadow-xl hover:shadow-portfolio/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-portfolio motion-reduce:transition-none motion-reduce:hover:translate-y-0 dark:border-slate-800 dark:bg-slate-900/60"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden border-b border-slate-200 dark:border-slate-800">
+                <Image
+                  src={project.image}
+                  alt={`${project.title} logo`}
+                  fill
+                  sizes="(min-width: 1024px) 320px, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                  {[project.company, project.year].filter(Boolean).join(" · ") || project.role}
+                </p>
+                <h2 className="mt-1 font-semibold text-slate-900 transition-colors group-hover:text-portfolio dark:text-slate-100">
+                  {project.title}
+                </h2>
+                <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                  {project.description}
+                </p>
+                <ul className="mt-auto flex flex-wrap gap-1.5 pt-4" aria-label="Technologies used">
+                  {project.technologies.slice(0, 4).map((tech) => (
+                    <li
+                      key={tech}
+                      className="rounded-full bg-portfolio/10 px-2.5 py-1 text-xs font-medium text-portfolio"
+                    >
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

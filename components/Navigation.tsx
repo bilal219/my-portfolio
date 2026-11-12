@@ -97,7 +97,8 @@ export default function Navigation() {
             </ul>
           </nav>
         </div>
-        <ul className="ml-1 mt-8 flex items-center" aria-label="Social media">
+        <div className="ml-1 mt-8 flex flex-wrap items-center gap-y-4">
+        <ul className="flex items-center" aria-label="Social media">
           {socialLinks.map((link) => (
             <li key={link.name} className="mr-5 text-xs shrink-0">
               <a
@@ -130,6 +131,31 @@ export default function Navigation() {
             </li>
           ))}
         </ul>
+          <span
+            className="mr-5 h-6 w-px bg-slate-300 dark:bg-slate-700"
+            aria-hidden="true"
+          />
+          <a
+            href="/Muhammad-Bilal-Yousaf-Resume.pdf"
+            download="Muhammad-Bilal-Yousaf-Resume.pdf"
+            className="group inline-flex h-10 items-center gap-2 rounded-full border border-portfolio/40 bg-portfolio/10 pl-3.5 pr-4 text-sm font-semibold text-portfolio transition-colors hover:border-portfolio hover:bg-portfolio hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-portfolio dark:hover:text-slate-900"
+            aria-label="Download résumé (PDF)"
+          >
+            <svg
+              className="h-4 w-4 transition-transform group-hover:translate-y-0.5 motion-reduce:transition-none"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14" />
+            </svg>
+            Résumé
+          </a>
+        </div>
       </header>
 
       {/* Mobile Bottom Navigation */}

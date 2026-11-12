@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { experiences } from "@/constants/data";
@@ -160,6 +161,14 @@ export default async function ExperiencePage({ params }: ExperiencePageProps) {
 
           {/* Experience Header */}
           <header className="mb-12">
+            <Image
+              src={experience.logo}
+              alt={`${experience.company} logo`}
+              width={64}
+              height={64}
+              priority
+              className="mb-6 h-16 w-16 rounded-2xl border border-slate-200 object-cover shadow-md dark:border-slate-700"
+            />
             <h1 className="text-4xl font-bold tracking-tight text-slate-800 dark:text-slate-200 sm:text-5xl mb-4">
               {experience.position}
             </h1>
