@@ -1,31 +1,28 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
+// The site always opens in dark mode (the `dark` class is rendered on <html>
+// by the root layout). This toggle switches theme for the current visit only;
+// nothing is persisted, so a reload or new visit starts dark again.
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    const isDarkMode = stored ? stored === "dark" : true;
-    setIsDark(isDarkMode);
-    document.documentElement.classList.toggle("dark", isDarkMode);
-    setMounted(true);
+    // Clear the preference older versions of the site saved, so it can't linger.
+    try {
+      localStorage.removeItem("theme");
+    } catch {
+      // Storage can be unavailable (private mode, blocked cookies); ignore.
+    }
+    setIsDark(document.documentElement.classList.contains("dark"));
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-    document.documentElement.classList.toggle("dark", newTheme);
-    localStorage.setItem("theme", newTheme ? "dark" : "light");
+    const next = !isDark;
+    setIsDark(next);
+    document.documentElement.classList.toggle("dark", next);
   };
-
-  if (!mounted) {
-    return (
-      <div className="w-14 h-7 bg-slate-700/50 rounded-full animate-pulse" />
-    );
-  }
 
   return (
     <button
@@ -46,6 +43,7 @@ export default function ThemeToggle() {
           }`}
           fill="currentColor"
           viewBox="0 0 20 20"
+          aria-hidden="true"
         >
           <path
             fillRule="evenodd"
@@ -53,7 +51,7 @@ export default function ThemeToggle() {
             clipRule="evenodd"
           />
         </svg>
-        
+
         {/* Moon icon for dark mode */}
         <svg
           className={`absolute w-3 h-3 text-slate-600 transition-all duration-300 ${
@@ -61,6 +59,7 @@ export default function ThemeToggle() {
           }`}
           fill="currentColor"
           viewBox="0 0 20 20"
+          aria-hidden="true"
         >
           <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
         </svg>

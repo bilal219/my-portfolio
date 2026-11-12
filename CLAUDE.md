@@ -24,7 +24,7 @@ Next.js 15 App Router, React 19, TypeScript, Tailwind CSS v4 (configured through
   - `app/projects/page.tsx` lists all projects.
   - `app/api/contact/route.ts` is a POST handler that validates input and sends mail through SMTP.
 - **Layout** (`app/layout.tsx`): loads the local fonts DREAMS and Helvetica Now from `app/fonts` as the CSS variables `--font-dreams` and `--font-helvetica`, holds the full SEO metadata, and mounts the global `AnimatedSphereBackground`, `ScrollToTop` and `ThemeToggle`. Page content is a two-column flex layout at `lg`.
-- **Theming:** class-based dark mode via `@custom-variant dark` in `app/globals.css`. Dark is the default. An inline script in `<head>` reads `localStorage.theme` before paint, and `ThemeToggle` must stay in sync with that logic. Custom design tokens (`portfolio`, `content`, `active`, gradient colors) are defined in the `@theme` block of `globals.css`, and `.dark` overrides `--color-portfolio`.
+- **Theming:** class-based dark mode via `@custom-variant dark` in `app/globals.css`. The root layout renders `<html class="dark">`, so every visit opens in dark mode. `ThemeToggle` switches to light for the current visit only and persists nothing (it also clears the old `localStorage.theme` key). Custom design tokens (`portfolio`, `content`, `active`, gradient colors) are defined in the `@theme` block of `globals.css`, and `.dark` overrides `--color-portfolio`.
 - **Shared UI:** `components/common` (Button, Input, Textarea, re-exported from `index.ts`), `components/ui/Timeline.tsx`, and the `cn()` helper (clsx + tailwind-merge) in `lib/utils.ts`.
 - **Remote images** are allowed only from `images.unsplash.com`, `picsum.photos` and `fastly.picsum.photos` (see `next.config.ts`). Local images go in `public/`.
 

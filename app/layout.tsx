@@ -97,20 +97,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            (function() {
-              const stored = localStorage.getItem('theme');
-              const isDark = stored ? stored === 'dark' : true;
-              if (isDark) document.documentElement.classList.add('dark');
-            })();
-          `,
-          }}
-        />
-      </head>
+    // Dark is rendered on the server so every visit opens in dark mode.
+    // ThemeToggle can switch to light for the current visit only.
+    <html lang="en" className="scroll-smooth dark" suppressHydrationWarning>
       <body
         className={`${dreams.variable} ${helvetica.variable} bg-slate-50 dark:bg-slate-900 antialiased selection:bg-portfolio selection:text-slate-900 relative overflow-x-hidden transition-colors duration-300 text-content`}
       >
