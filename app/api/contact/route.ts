@@ -1,10 +1,30 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+const escapeHtml = (value: string) =>
+  value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { name, email, message } = body;
+
+    if (
+      typeof name !== "string" ||
+      typeof email !== "string" ||
+      typeof message !== "string"
+    ) {
+      return NextResponse.json({ error: "Invalid input" }, { status: 400 });
+    }
+
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeMessage = escapeHtml(message);
 
     // Validate required fields
     if (!name || !email || !message) {
@@ -55,7 +75,7 @@ export async function POST(request: NextRequest) {
       }>`,
       to: process.env.EMAIL_RECEIVER,
       replyTo: email,
-      subject: `Message from Portfolio - ${name}`,
+      subject: `Message from Portfolio - ${name.replace(/[\r\n]+/g, " ").slice(0, 100)}`,
       text: `
 You have received a new message from your portfolio contact form.
 
@@ -93,19 +113,19 @@ Reply to this email to respond directly to ${name}.
     <div class="content">
       <div class="field">
         <div class="label">From:</div>
-        <div class="value">${name}</div>
+        <div class="value">${safeName}</div>
       </div>
       <div class="field">
         <div class="label">Email:</div>
-        <div class="value"><a href="mailto:${email}">${email}</a></div>
+        <div class="value"><a href="mailto:${safeEmail}">${safeEmail}</a></div>
       </div>
       <div class="field">
         <div class="label">Message:</div>
-        <div class="message-box">${message.replace(/\n/g, "<br>")}</div>
+        <div class="message-box">${safeMessage.replace(/\n/g, "<br>")}</div>
       </div>
       <div class="footer">
         This email was sent from your portfolio contact form.<br>
-        Reply to this email to respond directly to ${name}.
+        Reply to this email to respond directly to ${safeName}.
       </div>
     </div>
   </div>

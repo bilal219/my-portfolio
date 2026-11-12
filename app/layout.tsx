@@ -32,6 +32,7 @@ const helvetica = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bilal-yousaf-portfolio.vercel.app"),
   title: "Muhammad Bilal Yousaf | Full Stack Developer - 3+ Years Experience",
   description:
     "Full Stack Developer with 3+ years experience in Next.js, React, Node.js, MongoDB, and Stripe integration. Specialized in building scalable SaaS applications with modern web technologies. Currently at GTek Solutions.",
