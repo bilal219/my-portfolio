@@ -58,10 +58,10 @@ export default function Navigation() {
             </Link>
           </h1>
           <h2 className="font-medium uppercase tracking-tight text-slate-800 dark:text-slate-200 text-[6px] sm:text-[8px] font-dreams leading-[4.5]">
-            <span className="text-portfolio-gradient">Full Stack</span> Developer
+            <span className="text-portfolio-gradient">Full Stack</span> Software Engineer
           </h2>
           <p className=" leading-normal font-helvetica text-slate-600 dark:text-slate-400">
-            Transforming ideas into high-performance web solutions. 3+ years crafting enterprise-grade applications with cutting-edge technologies.
+            I build production SaaS apps end to end, from the database to the UI. 4+ years with React, Next.js, Node.js, and now Angular and .NET.
           </p>
           <nav className="nav hidden lg:block" aria-label="In-page jump links">
             <ul className="mt-8 w-max">

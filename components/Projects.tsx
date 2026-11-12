@@ -89,12 +89,12 @@ export default function Projects() {
                   </ul>
                 </div>
                 <Image
-                  alt={project.title}
+                  alt={`${project.title} logo`}
                   loading="lazy"
-                  width="200"
-                  height="48"
-                  decoding="async"
-                  className="rounded border-2 border-slate-300/30 dark:border-slate-200/10 transition group-hover:border-slate-400/50 dark:group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
+                  width={400}
+                  height={250}
+                  sizes="(min-width: 640px) 200px, 100vw"
+                  className="aspect-[16/10] w-full rounded-lg border border-slate-300/40 object-cover shadow-sm transition group-hover:border-portfolio/40 group-hover:shadow-md dark:border-slate-200/10 sm:order-1 sm:col-span-2 sm:translate-y-1"
                   src={project.image}
                 />
               </div>

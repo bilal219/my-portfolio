@@ -6,32 +6,38 @@ export default function About() {
           About
         </h2>
       </div>
-      <div className="font-helvetica relative">
-        <p className="mb-6 text-slate-700 dark:text-slate-300">
+      <div className="font-helvetica relative space-y-4 text-slate-700 dark:text-slate-300">
+        <p>
+          I&apos;m a{" "}
           <strong className="text-slate-900 dark:text-slate-100">
-            Full-Stack Developer
+            Full Stack Software Engineer
           </strong>{" "}
           with{" "}
           <strong className="text-slate-900 dark:text-slate-100">
-            3+ years of experience
+            4+ years of experience
           </strong>{" "}
-          delivering scalable SaaS applications using{" "}
+          building production SaaS applications with{" "}
           <span className="text-portfolio font-medium">
-            React, Next.js, Node.js, and MongoDB
+            React, Next.js, Node.js, and GraphQL
           </span>
-          . Skilled in{" "}
+          , and more recently{" "}
           <span className="text-portfolio font-medium">
-            secure storage, AI-powered search, and Stripe payment systems
+            Angular and ASP.NET Core
           </span>
-          . Experienced in{" "}
+          .
+        </p>
+        <p>
+          My strongest work is in{" "}
           <span className="text-portfolio font-medium">
-            Vue.js, Strapi, GraphQL, and AWS
+            AI-powered search, secure file storage, and Stripe billing
           </span>
-          . Strong focus on building{" "}
-          <strong className="text-slate-900 dark:text-slate-100">
-            maintainable, high-performance solutions
-          </strong>{" "}
-          and collaborating effectively with clients and cross-functional teams.
+          . I&apos;ve led frontend development on client projects, built a
+          module used by 10K+ families from scratch, and added Fully
+          Homomorphic Encryption to a storage product.
+        </p>
+        <p>
+          I&apos;m comfortable in a 5–6 person team or working solo, and I like
+          owning a feature from the database all the way to the UI.
         </p>
       </div>
     </section>

@@ -29,11 +29,11 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${experience.position} at ${experience.company} | Muhammad Bilal Yousaf - Full Stack Developer`,
+    title: `${experience.position} at ${experience.company} | Muhammad Bilal Yousaf - Full Stack Software Engineer`,
     description: `${experience.description} Technologies used: ${experience.technologies.slice(0, 5).join(', ')}. View detailed work experience timeline and achievements.`,
     keywords: [
       "Muhammad Bilal Yousaf",
-      "Full Stack Developer",
+      "Full Stack Software Engineer",
       "Work Experience", 
       experience.position,
       experience.company,
@@ -97,7 +97,7 @@ export default async function ExperiencePage({ params }: ExperiencePageProps) {
             employee: {
               "@type": "Person",
               name: "Muhammad Bilal Yousaf",
-              jobTitle: "Full Stack Developer",
+              jobTitle: "Full Stack Software Engineer",
             },
             skills: experience.technologies,
           }),
@@ -252,72 +252,6 @@ export default async function ExperiencePage({ params }: ExperiencePageProps) {
             </section>
           )}
 
-          {/* Role Overview */}
-          <section className="mb-12" aria-labelledby="overview-heading">
-            <h2
-              id="overview-heading"
-              className="text-2xl font-bold tracking-tight text-slate-800 dark:text-slate-200 mb-6"
-            >
-              Role Overview & Impact
-            </h2>
-            <div className="prose prose-slate prose-invert max-w-none ">
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-6">
-                During my tenure as {experience.position} at{" "}
-                {experience.company}, I played a pivotal role in driving
-                technical excellence and delivering innovative solutions that
-                significantly impacted business objectives and user experiences.
-              </p>
-
-              <h3 className="font-semibold text-slate-800 dark:text-slate-200 mt-8 mb-4">
-                Core Responsibilities
-              </h3>
-              <ul className="space-y-2 text-slate-700 dark:text-slate-300">
-                <li className="flex items-start">
-                  <span className="flex-shrink-0 w-2 h-2 bg-portfolio rounded-full mt-2.5 mr-3"></span>
-                  <span>
-                    Full-stack application development using modern frameworks
-                    and technologies
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="flex-shrink-0 w-2 h-2 bg-portfolio rounded-full mt-2.5 mr-3"></span>
-                  <span>
-                    Collaborative work with cross-functional teams to deliver
-                    high-quality solutions
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="flex-shrink-0 w-2 h-2 bg-portfolio rounded-full mt-2.5 mr-3"></span>
-                  <span>
-                    Code quality maintenance and implementation of best
-                    practices
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="flex-shrink-0 w-2 h-2 bg-portfolio rounded-full mt-2.5 mr-3"></span>
-                  <span>
-                    Performance optimization and scalability improvements
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="flex-shrink-0 w-2 h-2 bg-portfolio rounded-full mt-2.5 mr-3"></span>
-                  <span>Mentoring and knowledge sharing with team members</span>
-                </li>
-              </ul>
-
-              <h3 className="font-semibold text-slate-800 dark:text-slate-200 mt-8 mb-4">
-                Professional Growth
-              </h3>
-              <p className="text-slate-700 dark:text-slate-300">
-                This role provided invaluable opportunities to expand technical
-                expertise, develop leadership skills, and contribute to
-                meaningful projects that solved real-world problems. The
-                experience enhanced my ability to work in fast-paced
-                environments while maintaining high standards of code quality
-                and professional excellence.
-              </p>
-            </div>
-          </section>
         </div>
       </div>
     </>

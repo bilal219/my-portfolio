@@ -1,13 +1,7 @@
 import { skills } from '@/constants/data';
 
 export default function Skills() {
-  const categories = [
-    { title: 'Frontend', skills: skills.frontend },
-    { title: 'Backend', skills: skills.backend },
-    { title: 'Databases', skills: skills.databases },
-    { title: 'Payments & Security', skills: skills.specialized },
-    { title: 'DevOps & Tools', skills: skills.tools }
-  ];
+  const categories = skills.map((group) => ({ title: group.title, skills: group.items }));
 
   return (
     <section id="skills" aria-label="Technical skills">

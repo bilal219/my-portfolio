@@ -32,42 +32,15 @@ const helvetica = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bilal-yousaf-portfolio.vercel.app"),
-  title: "Muhammad Bilal Yousaf | Full Stack Developer - 3+ Years Experience",
+  metadataBase: new URL("https://muhammad-bilal-yousaf.vercel.app"),
+  title: "Muhammad Bilal Yousaf | Full Stack Software Engineer",
   description:
-    "Full Stack Developer with 3+ years experience in Next.js, React, Node.js, MongoDB, and Stripe integration. Specialized in building scalable SaaS applications with modern web technologies. Currently at GTek Solutions.",
-  keywords: [
-    "Muhammad Bilal Yousaf",
-    "Full Stack Developer",
-    "Next.js Developer",
-    "React Developer",
-    "Node.js Developer",
-    "JavaScript Developer",
-    "TypeScript Developer",
-    "MongoDB Developer",
-    "Stripe Integration",
-    "Web Developer Pakistan",
-    "GTek Solutions",
-    "SaaS Applications",
-    "REST APIs",
-    "GraphQL",
-    "Tailwind CSS",
-    "SASS",
-    "Recoil State Management",
-    "AWS Deployment",
-    "Full Stack Engineer",
-    "Software Engineer Pakistan",
-    "Laravel Developer",
-    "React Native",
-    "Responsive Web Design",
-    "Progressive Web Apps",
-    "Frontend Engineer",
-    "Backend Engineer",
-  ].join(", "),
+    "Full Stack Software Engineer with 4+ years of experience building production SaaS applications with React, Next.js, Node.js, and GraphQL, and more recently Angular and ASP.NET Core. Strongest in AI-powered search, secure file storage, and Stripe billing.",
+  keywords: ["Muhammad Bilal Yousaf","Full Stack Software Engineer","Software Engineer Lahore","React Developer","Next.js Developer","Node.js Developer","Angular Developer","ASP.NET Core Developer","TypeScript","C#","GraphQL","RESTful APIs","NestJS","MongoDB","PostgreSQL","SQL Server","Stripe Integration","AI-Powered Search","Fully Homomorphic Encryption","AWS","Docker","SaaS Applications"].join(", "),
   authors: [
     {
       name: "Muhammad Bilal Yousaf",
-      url: "https://bilal-yousaf-portfolio.vercel.app",
+      url: "https://muhammad-bilal-yousaf.vercel.app",
     },
   ],
   creator: "Muhammad Bilal Yousaf",
@@ -78,28 +51,28 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Muhammad Bilal Yousaf | Full Stack Developer",
+    title: "Muhammad Bilal Yousaf | Full Stack Software Engineer",
     description:
-      "Full Stack Developer with 3+ years experience building scalable SaaS applications. Expert in Next.js, React, Node.js, and modern web technologies.",
-    url: "https://bilal-yousaf-portfolio.vercel.app",
+      "Full Stack Software Engineer with 4+ years of experience building production SaaS applications with React, Next.js, Node.js, and GraphQL, and more recently Angular and ASP.NET Core. Strongest in AI-powered search, secure file storage, and Stripe billing.",
+    url: "https://muhammad-bilal-yousaf.vercel.app",
     siteName: "Muhammad Bilal Yousaf Portfolio",
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "/avatar.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Muhammad Bilal Yousaf - Full Stack Developer",
+        alt: "Muhammad Bilal Yousaf - Full Stack Software Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Bilal Yousaf | Full Stack Developer",
+    title: "Muhammad Bilal Yousaf | Full Stack Software Engineer",
     description:
-      "Full Stack Developer with 3+ years experience in Next.js, React, Node.js. Building scalable SaaS applications.",
-    images: ["/avatar.jpg"],
+      "Full Stack Software Engineer with 4+ years of experience building production SaaS applications with React, Next.js, Node.js, and GraphQL, and more recently Angular and ASP.NET Core. Strongest in AI-powered search, secure file storage, and Stripe billing.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -124,7 +97,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

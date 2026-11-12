@@ -1,24 +1,24 @@
 export const personalInfo = {
   name: "Muhammad Bilal Yousaf",
-  title: "Full Stack Developer",
-  location: "DHA Ph#9 Town, Lahore, Punjab",
+  title: "Full Stack Software Engineer",
+  location: "Lahore, Pakistan",
   phone: "+92-309-2280331",
   email: "bilalmughal1309@gmail.com",
-  linkedin: "https://linkedin.com/in/muhammad-bilalyousaf-dev",
-  website: "https://muhammad-bilalyousaf.vercel.app/",
-  bio: "Full-Stack Developer with 3+ years of experience delivering scalable SaaS applications using React, Next.js, Node.js, and MongoDB. Skilled in secure storage, AI-powered search, and Stripe payment systems.",
+  linkedin: "https://linkedin.com/in/muhammad-bilal-yousaf-dev",
+  website: "https://muhammad-bilal-yousaf.vercel.app",
+  bio: "Full Stack Software Engineer with 4+ years of experience building production SaaS applications with React, Next.js, Node.js, and GraphQL, and more recently Angular and ASP.NET Core.",
   avatar: "/avatar.jpg",
 };
 
 export const socialLinks = [
   {
     name: "GitHub",
-    url: "https://github.com/MBilal219",
+    url: "https://github.com/MBilal0219",
     icon: "github",
   },
   {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/muhammad-bilalyousaf-dev",
+    url: "https://linkedin.com/in/muhammad-bilal-yousaf-dev",
     icon: "linkedin",
   },
   {
@@ -42,87 +42,166 @@ export const navigation = [
   { name: "Contact", href: "#contact" },
 ];
 
-export const skills = {
-  frontend: [
-    "React",
-    "Next.js",
-    "Vue.js",
-    "JavaScript",
-    "TypeScript",
-    "Tailwind CSS",
-    "Ant Design",
-    "Shadcn",
-    "SASS",
-    "Recoil",
-    "Bootstrap",
-  ],
-  backend: ["Node.js", "Express.js", "Strapi", "REST APIs", "GraphQL"],
-  databases: ["MongoDB", "MySQL", "SQL"],
-  tools: ["Git", "AWS", "PM2", "Agile/Scrum"],
-  specialized: [
-    "Stripe Integration",
-    "AI/ML",
-    "FHE Encryption",
-    "Payment Systems",
-  ],
-};
+// Same groups and wording as the CV so ATS keyword matching lines up.
+export const skills: { title: string; items: string[] }[] = [
+  {
+    title: "Languages",
+    items: ["JavaScript", "TypeScript", "C#", "PHP", "SQL", "HTML5", "CSS3"],
+  },
+  {
+    title: "Frontend",
+    items: [
+      "React",
+      "Next.js",
+      "Angular",
+      "Vue.js",
+      "Recoil",
+      "Tailwind CSS",
+      "Ant Design",
+      "shadcn/ui",
+      "SASS",
+      "Bootstrap",
+    ],
+  },
+  {
+    title: "Backend & APIs",
+    items: [
+      "Node.js",
+      "Express.js",
+      "NestJS",
+      "ASP.NET Core Web API",
+      "Strapi CMS",
+      "Laravel",
+      "RESTful APIs",
+      "GraphQL",
+      "Webhooks",
+      "JWT",
+      "OAuth",
+    ],
+  },
+  {
+    title: "Databases",
+    items: ["MongoDB", "MySQL", "PostgreSQL", "SQL Server"],
+  },
+  {
+    title: "AI & Security",
+    items: [
+      "AI-Powered Search",
+      "Prompt-Based Querying",
+      "Fully Homomorphic Encryption (FHE)",
+      "Data Encryption",
+      "Access Control",
+    ],
+  },
+  {
+    title: "Payments",
+    items: ["Stripe Subscriptions", "One-Time Payments", "Cancellations", "Stripe Webhooks"],
+  },
+  {
+    title: "Cloud & DevOps",
+    items: [
+      "AWS (EC2, S3)",
+      "Docker",
+      "CI/CD",
+      "PM2",
+      "cPanel",
+      "Git",
+      "Agile/Scrum",
+      "Figma",
+      "Adobe XD",
+      "Cursor",
+      "Claude",
+    ],
+  },
+];
 
 export const experiences = [
+  {
+    id: "eas-solution",
+    company: "EAS Solution",
+    position: "Full Stack Software Engineer",
+    period: "May 2026 — Present",
+    location: "Lahore, Pakistan",
+    description:
+      "Sole developer on an existing product. I build Angular components, forms, and services, extend the ASP.NET Core Web API in C#, and look after the SQL Server database.",
+    technologies: [
+      "Angular",
+      "TypeScript",
+      "C#",
+      "ASP.NET Core Web API",
+      "SQL Server",
+      "RESTful APIs",
+      "Git",
+      "Cursor",
+      "Claude",
+    ],
+    achievements: [
+      "Work as the sole developer on an existing product, building Angular components, forms, and services and fixing bugs",
+      "Build and extend ASP.NET Core Web APIs in C#, and handle SQL Server work including queries, tables, and schema updates",
+      "Use AI-assisted development (Cursor, Claude) to ramp up quickly on the Angular and .NET stack and ship features independently",
+    ],
+    timeline: [
+      {
+        date: "May 2026",
+        title: "Joined as sole developer",
+        description:
+          "Took over an existing Angular and ASP.NET Core product and got up to speed on the codebase.",
+      },
+      {
+        date: "Jun 2026 — Present",
+        title: "Features and fixes across the stack",
+        description:
+          "Shipping Angular screens and forms, new Web API endpoints in C#, and SQL Server schema changes.",
+      },
+    ],
+  },
   {
     id: "crewlogix-technologies",
     company: "Crewlogix Technologies",
     position: "Full Stack Software Engineer",
-    period: "Jun 2025 — Present",
-    location: "Lahore, Punjab, Pakistan",
+    period: "Jun 2025 — May 2026",
+    location: "Lahore, Pakistan",
     description:
-      "Enhanced system stability and performance by optimizing storage modules. Implemented AI-based Fully Homomorphic Encryption (FHE) and standard encryption protocols to secure files and folders. Developed AI-powered search modules (prompt & suggestion-based) to deliver faster, more relevant results.",
+      "Worked on H33, a secure storage SaaS. I owned file and folder management end to end, built the AI-powered search, and added Fully Homomorphic Encryption (FHE) to protect stored files.",
     technologies: [
       "Next.js",
       "Vue.js",
       "React",
       "Node.js",
-      "Express",
-      "Strapi",
-      "REST APIs",
-      "GraphQL",
+      "Express.js",
       "MongoDB",
-      "MySQL",
-      "Stripe",
+      "Fully Homomorphic Encryption (FHE)",
+      "AI-Powered Search",
+      "Access Control",
       "Tailwind CSS",
-      "Ant Design",
-      "SASS",
       "Git",
       "AWS",
-      "PM2",
     ],
     achievements: [
-      "Enhanced system stability and performance by optimizing storage modules",
-      "Implemented AI-based Fully Homomorphic Encryption (FHE) and standard encryption protocols",
-      "Developed file and folder management features including upload, sharing, permissions, and custom actions",
-      "Improved UI/UX design, resulting in a more intuitive and user-friendly platform",
-      "Developed AI-powered search modules (prompt & suggestion-based) for faster, relevant results",
-      "Ensured data security and relevance in AI-driven search outputs",
-      "Contributed to frontend development by acquiring and applying Vue.js skills",
-      "Participated in weekly client meetings to deliver progress updates and gather feedback",
+      "Owned file and folder management for a secure storage SaaS end to end: uploads, sharing, permission controls, and custom actions",
+      "Developed AI-powered search with prompt-based and suggestion-based querying, with access control scoping results per user",
+      "Implemented Fully Homomorphic Encryption (FHE) together with standard encryption to protect stored files and folders",
+      "Optimized storage modules for stability and performance",
+      "Learned Vue.js on the job and met clients weekly to demo progress and agree on next steps",
     ],
     timeline: [
       {
         date: "Jun 2025",
-        title: "Started as Full Stack Software Engineer",
+        title: "Joined the H33 team",
         description:
-          "Began working on AI-powered features and secure storage solutions",
+          "Started on the secure storage product, beginning with file and folder management.",
       },
       {
-        date: "Jul 2025 - Aug 2025",
-        title: "Security Implementation",
+        date: "Jul 2025 — Aug 2025",
+        title: "Encryption",
         description:
-          "Implemented FHE encryption and standard encryption protocols for file security",
+          "Added FHE alongside standard encryption for stored files and folders.",
       },
       {
-        date: "Sep 2025 - Present",
-        title: "AI Search & Optimization",
+        date: "Sep 2025 — May 2026",
+        title: "AI search and performance",
         description:
-          "Developed AI-powered search modules and optimized system performance",
+          "Built prompt-based and suggestion-based search with per-user access control, and tuned the storage modules.",
       },
     ],
   },
@@ -130,78 +209,67 @@ export const experiences = [
     id: "gtek-solutions",
     company: "GTek Solutions",
     position: "Full Stack Software Engineer",
-    period: "Nov 2022 — Present",
-    location: "Lahore, Punjab, Pakistan",
+    period: "Nov 2022 — Jun 2025",
+    location: "Lahore, Pakistan",
     description:
-      "Gripped modern technologies like Next.js, Strapi, GraphQL, Sass, Recoil, Tailwind CSS, and Ant Design to develop scalable, robust full-stack solutions. Led frontend development projects and developed modules from scratch using advanced state management techniques.",
+      "Built client products with React, Next.js, Node.js, and Strapi CMS. Led the frontend for PreLabs, built the Chores module for Home School Panda, and set up Stripe billing for New Wave Car Wash.",
     technologies: [
-      "Next.js",
       "React",
+      "Next.js",
       "JavaScript",
       "Recoil",
       "Node.js",
       "Strapi CMS",
-      "REST APIs",
       "GraphQL",
+      "RESTful APIs",
       "Stripe",
       "MongoDB",
       "MySQL",
       "Tailwind CSS",
       "Ant Design",
-      "Shadcn",
       "SASS",
-      "Git",
-      "AWS",
+      "AWS EC2",
       "PM2",
       "Figma",
       "Adobe XD",
     ],
     achievements: [
-      "Started working on Next.js after R&D and transitioned into building client projects",
-      "Developed FBR project using a Stripe backend, followed by its sibling project NBR",
-      "Led the frontend development of the PreLabs project, incorporating React.js and Next.js",
-      "Worked on the main product, Home School Panda (HSP), and developed the Chores module from scratch",
-      "Transitioned to the New Wave Car Wash project, implementing animations and UI design",
-      "Integrated Stripe payment solutions including subscriptions, one-time payments, cancellation, and webhook handling",
-      "Managed AWS EC2 deployments for development environment using PM2 for process management",
-      "Produced clean, maintainable, and scalable code focusing on high performance and robust architecture",
+      "Led frontend development for PreLabs, owning the React/Next.js UI; adopted Next.js for client work after R&D",
+      "Built the Chores module from scratch for Home School Panda (10K+ families) using React, Recoil, and Node.js/Strapi APIs",
+      "Fixed daylight-saving-time and time-zone bugs for users across regions and handled ongoing production support",
+      "Implemented Stripe billing for New Wave Car Wash: subscriptions, one-time payments, cancellations, and webhooks",
+      "Built Node.js and Strapi CMS services with GraphQL and REST APIs; deployed dev servers on AWS EC2 with PM2",
+      "Built the FBR and NABR websites with Stripe-powered donations",
     ],
     timeline: [
       {
         date: "Nov 2022",
-        title: "Started as Junior Developer",
+        title: "Joined as Junior Developer",
         description:
-          "Began working with modern technologies, started R&D on Next.js and transitioned into building client projects",
+          "Did R&D on Next.js and moved the team's client work onto it.",
       },
       {
-        date: "Dec 2022 - Feb 2023",
-        title: "FBR & NBR Projects Development",
+        date: "Dec 2022 — Feb 2023",
+        title: "FBR and NABR",
         description:
-          "Developed Foundation of Biomedical Research (FBR) project using Stripe backend, followed by National Association of Biomedical Research (NABR)",
+          "Built the Foundation for Biomedical Research site with Stripe donations, then its sister site for NABR.",
       },
       {
-        date: "Mar 2023 - Jun 2023",
-        title: "PreLabs Project Lead",
-        description:
-          "Led frontend development incorporating React.js and Next.js for high-quality, responsive UI components",
+        date: "Mar 2023 — Jun 2023",
+        title: "PreLabs frontend lead",
+        description: "Owned the React/Next.js UI for PreLabs.",
       },
       {
-        date: "Jul 2023 - Dec 2023",
-        title: "Home School Panda (HSP) - Chores Module",
+        date: "Jul 2023 — Jun 2024",
+        title: "Home School Panda",
         description:
-          "Developed Chores module from scratch using Recoil for state management, ensuring seamless interaction between frontend and backend systems",
+          "Built the Chores module from scratch, then fixed DST and time-zone bugs and handled production support.",
       },
       {
-        date: "Jan 2024 - Jun 2024",
-        title: "HSP - User Issues & Maintenance",
-        description:
-          "Handled user-related issues and maintenance, resolved DST-related bugs improving user experience across time zones, and provided ongoing bug fixes and support for existing features",
-      },
-      {
-        date: "Jul 2024 - Present",
+        date: "Jul 2024 — Jun 2025",
         title: "Promoted to Full Stack Software Engineer",
         description:
-          "Leading New Wave Car Wash project - implementing animations, designing UI according to Figma/Adobe XD, and integrating comprehensive Stripe payment solutions",
+          "Built the New Wave Car Wash site from Figma and Adobe XD designs and set up its Stripe billing.",
       },
     ],
   },
@@ -210,44 +278,44 @@ export const experiences = [
     company: "Technic Mentors",
     position: "Full Stack Developer",
     period: "Jul 2021 — Nov 2022",
-    location: "Gujranwala, Punjab, Pakistan",
+    location: "Gujranwala, Pakistan",
     description:
-      "Started as an intern and contributed to the development and deployment of a complete POS system using Laravel 8, SQL, and Blade templates. Promoted to Junior Developer and built interactive front-end components using React.",
+      "Started as an intern and was promoted to Junior Developer. Helped move a C# desktop POS to a Laravel 8 and SQL web app, and built React components and client websites.",
     technologies: [
       "Laravel",
+      "PHP",
       "React",
       "JavaScript",
       "C#",
       "SQL",
-      "HTML",
-      "CSS",
+      "HTML5",
+      "CSS3",
       "Bootstrap",
+      "cPanel",
     ],
     achievements: [
-      "Developed complete POS system migrating functionality from C# desktop application",
-      "Built interactive front-end components using React for enhanced user experience",
-      "Developed and deployed several static websites for clients",
-      "Deployed applications on cPanel with proper configuration",
-      "Promoted from Intern to Junior Developer",
+      "Started as an intern and was promoted to Junior Developer",
+      "Helped migrate a C# desktop POS to a Laravel 8 and SQL web app (CapoBiz POS)",
+      "Built React components for internal tools and responsive client websites",
+      "Deployed Laravel apps to production on cPanel",
     ],
     timeline: [
       {
         date: "Jul 2021",
         title: "Started as Intern",
         description:
-          "Began contributing to POS system development using Laravel 8, SQL, and Blade templates",
+          "Worked on the CapoBiz POS rewrite in Laravel 8, SQL, and Blade.",
       },
       {
         date: "Oct 2021",
         title: "Promoted to Junior Developer",
-        description:
-          "Continued enhancing POS system, adding new features and improving performance",
+        description: "Kept building POS features and fixing performance issues.",
       },
       {
-        date: "Jan 2022 - Nov 2022",
-        title: "Frontend & Deployment Focus",
+        date: "Jan 2022 — Nov 2022",
+        title: "Frontend and deployments",
         description:
-          "Built React components for internal tools, developed static websites, and managed cPanel deployments",
+          "Built React components for internal tools, shipped client websites, and handled cPanel deployments.",
       },
     ],
   },
@@ -255,104 +323,159 @@ export const experiences = [
 
 export const education = {
   degree: "Bachelor of Science in Information Technology",
-  institution: "University of the Punjab (Gujranwala Campus)",
+  institution: "University of the Punjab",
   period: "Oct 2017 — Jul 2021",
-  location: "Lahore, Punjab, Pakistan",
+  location: "Lahore, Pakistan",
 };
 
-export const projects = [
+export interface Project {
+  id: string;
+  title: string;
+  /** One or two lines for project cards. */
+  description: string;
+  /** What the product is, for the case-study page. */
+  overview: string;
+  role: string;
+  image: string;
+  technologies: string[];
+  /** What I personally built or owned. */
+  contributions: string[];
+  /** Short facts shown as stat chips, e.g. "10K+ families". */
+  highlights?: { label: string; value: string }[];
+  demo?: string;
+  featured: boolean;
+  company?: string;
+  year?: string;
+  timeline?: { date: string; title: string; description: string }[];
+}
+
+export const projects: Project[] = [
   {
-    id: "happhi",
-    title: "Happhi",
+    id: "h33-ai",
+    title: "H33",
     description:
-      "SaaS platform with AI-powered search (prompt & suggestion-based) and secure file storage using Fully Homomorphic Encryption (FHE). Features file management, sharing permissions, and optimized storage modules for enhanced system stability.",
-    image:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop",
+      "Secure storage SaaS. I owned file and folder management, built the AI-powered search, and added Fully Homomorphic Encryption (FHE) for stored files.",
+    overview:
+      "H33 is a cybersecurity platform focused on post-quantum security and AI governance. I worked on its secure storage product, where users upload, share, and search files that stay encrypted.",
+    role: "Full Stack Software Engineer",
+    image: "/assets/projects/h33-ai.webp",
     technologies: [
       "Next.js",
       "Vue.js",
       "React",
       "Node.js",
-      "Express",
+      "Express.js",
       "MongoDB",
-      "AI/ML",
-      "FHE Encryption",
+      "FHE",
+      "AI-Powered Search",
       "Tailwind CSS",
     ],
-    demo: "https://app.appuix.com/",
+    contributions: [
+      "Owned file and folder management end to end: uploads, sharing, permission controls, and custom actions",
+      "Built AI-powered search with prompt-based and suggestion-based querying",
+      "Scoped search results with access control, so users only see files they are allowed to see",
+      "Added Fully Homomorphic Encryption (FHE) alongside standard encryption for stored files and folders",
+      "Optimized storage modules for stability and performance",
+      "Learned Vue.js on the job to work across the frontend",
+    ],
+    highlights: [
+      { label: "Encryption", value: "FHE" },
+      { label: "Search", value: "AI-powered" },
+      { label: "Ownership", value: "End to end" },
+    ],
+    demo: "https://h33.ai/",
     featured: true,
     company: "Crewlogix Technologies",
-    year: "2025",
+    year: "2025 — 2026",
     timeline: [
       {
         date: "Jun 2025",
-        title: "Project Initiation",
-        description:
-          "Started development of AI-powered SaaS platform with secure storage",
+        title: "File and folder management",
+        description: "Uploads, sharing, permissions, and custom actions.",
       },
       {
-        date: "Jul 2025",
-        title: "Security Implementation",
-        description:
-          "Implemented FHE encryption and standard encryption protocols",
+        date: "Jul 2025 — Aug 2025",
+        title: "Encryption",
+        description: "FHE plus standard encryption for stored data.",
       },
       {
-        date: "Aug 2025",
-        title: "AI Search Development",
+        date: "Sep 2025 — May 2026",
+        title: "AI search and tuning",
         description:
-          "Developed AI-powered search modules for faster, relevant results",
-      },
-      {
-        date: "Sep 2025",
-        title: "Optimization & Launch",
-        description:
-          "Optimized storage modules and improved UI/UX for production",
+          "Prompt-based and suggestion-based search with per-user access control, plus storage performance work.",
       },
     ],
   },
   {
-    id: "home-school-panda",
-    title: "HSP (Home School Panda)",
+    id: "sealpact",
+    title: "SealPact",
     description:
-      "Built the Chores module from scratch, enhancing user engagement for 10K+ families. Implemented advanced state management with Recoil and resolved DST-related bugs for improved user experience across time zones.",
-    image:
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=300&fit=crop",
+      "SaaS platform for engineering document stamping, with automated page splitting and AI-assisted document management.",
+    overview:
+      "SealPact lets architects and engineers sign and seal drawings and documents digitally, then keep control of them after they are issued. The web app handles uploading, splitting, sealing, and managing those documents.",
+    role: "Full Stack Software Engineer",
+    image: "/assets/projects/sealpact.webp",
+    technologies: ["React", "JavaScript", "RESTful APIs", "AI Document Management"],
+    contributions: [
+      "Worked on the document stamping flow used by design professionals",
+      "Built automated page splitting so multi-page uploads become individual sealable sheets",
+      "Worked on AI-assisted document management features",
+    ],
+    highlights: [
+      { label: "Domain", value: "e-Seals" },
+      { label: "Users", value: "Engineers & architects" },
+    ],
+    demo: "https://sealpact.com/",
+    featured: true,
+  },
+  {
+    id: "home-school-panda",
+    title: "Home School Panda",
+    description:
+      "Homeschooling platform used by 10K+ families. I built its Chores module from scratch with React and Recoil and supported it in production.",
+    overview:
+      "Home School Panda is an all-in-one homeschooling app: lesson planning, record keeping, and a social network for homeschool families, on web, iOS, and Android.",
+    role: "Full Stack Software Engineer",
+    image: "/assets/projects/home-school-panda.webp",
     technologies: [
-      "Next.js",
       "React",
+      "Next.js",
       "Recoil",
       "JavaScript",
       "Node.js",
+      "Strapi CMS",
       "MongoDB",
     ],
-    demo: "https://app.homeschoolpanda.com/",
+    contributions: [
+      "Built the Chores module from scratch, frontend and API",
+      "Managed module state with Recoil",
+      "Connected the UI to Node.js/Strapi APIs",
+      "Fixed daylight-saving-time and time-zone bugs for families in different regions",
+      "Handled production support and bug fixes for existing features",
+    ],
+    highlights: [
+      { label: "Families", value: "10K+" },
+      { label: "Module", value: "Built from scratch" },
+    ],
+    demo: "https://homeschoolpanda.com/",
     featured: true,
     company: "GTek Solutions",
-    year: "2022-2024",
+    year: "2023 — 2024",
     timeline: [
       {
-        date: "Nov 2022 - Jun 2023",
-        title: "Initial HSP Development",
-        description:
-          "Worked on main product Home School Panda, learning codebase and contributing to core features",
+        date: "Jul 2023 — Sep 2023",
+        title: "Chores module",
+        description: "Designed and built the module with React, Recoil, and Strapi APIs.",
       },
       {
-        date: "Jul 2023 - Sep 2023",
-        title: "Chores Module Development",
-        description:
-          "Built complete chores management system from scratch using Recoil for state management",
+        date: "Oct 2023 — Dec 2023",
+        title: "Time-zone fixes",
+        description: "Tracked down and fixed DST and time-zone bugs.",
       },
       {
-        date: "Oct 2023 - Dec 2023",
-        title: "Bug Fixes & Optimization",
-        description:
-          "Resolved DST-related bugs and improved user experience across time zones",
-      },
-      {
-        date: "Jan 2024 - Jul 2024",
-        title: "User Issues Handling & Maintenance",
-        description:
-          "Handled user-related issues and maintenance for HSP, provided ongoing bug fixes and support for existing features",
+        date: "Jan 2024 — Jun 2024",
+        title: "Production support",
+        description: "Handled user-reported issues and ongoing fixes.",
       },
     ],
   },
@@ -360,39 +483,50 @@ export const projects = [
     id: "new-wave-car-wash",
     title: "New Wave Car Wash",
     description:
-      "Implemented Stripe subscription billing and designed UI from Figma/Adobe XD. Features comprehensive payment solutions including subscriptions, one-time payments, cancellation, and webhook handling.",
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+      "Website and membership billing for a car wash in Willowbrook, IL. I built the UI from Figma designs and set up Stripe subscriptions, one-time payments, cancellations, and webhooks.",
+    overview:
+      "New Wave Car Wash sells VIP X-Pass memberships and single washes online. The site needed to look as polished as the wash itself and handle recurring billing reliably.",
+    role: "Full Stack Software Engineer",
+    image: "/assets/projects/new-wave-car-wash.webp",
     technologies: [
       "Next.js",
       "React",
       "JavaScript",
       "Stripe",
+      "Webhooks",
       "Tailwind CSS",
       "Figma",
       "Adobe XD",
     ],
+    contributions: [
+      "Built the site from Figma and Adobe XD designs, including the animations",
+      "Set up Stripe subscriptions for VIP X-Pass memberships",
+      "Added one-time payments and self-serve cancellations",
+      "Handled Stripe webhooks to keep membership status in sync",
+    ],
+    highlights: [
+      { label: "Billing", value: "Stripe" },
+      { label: "Model", value: "Memberships" },
+    ],
     demo: "https://www.newwavecarwash.com/",
     featured: true,
     company: "GTek Solutions",
-    year: "2024",
+    year: "2024 — 2025",
     timeline: [
       {
-        date: "Jan 2024",
-        title: "UI/UX Implementation",
-        description:
-          "Translated Figma and Adobe XD designs into responsive web interface",
+        date: "Jul 2024",
+        title: "UI build",
+        description: "Turned the Figma and Adobe XD designs into a responsive site.",
       },
       {
-        date: "Mar 2024",
-        title: "Animation & Interactions",
-        description: "Added smooth animations and interactive elements",
+        date: "Sep 2024",
+        title: "Animations",
+        description: "Added the motion and interactions from the designs.",
       },
       {
-        date: "May 2024",
-        title: "Payment Integration",
-        description:
-          "Implemented full Stripe payment ecosystem with subscriptions and webhooks",
+        date: "Nov 2024",
+        title: "Stripe billing",
+        description: "Subscriptions, one-time payments, cancellations, and webhooks.",
       },
     ],
   },
@@ -400,16 +534,18 @@ export const projects = [
     id: "prelabs",
     title: "PreLabs",
     description:
-      "Led frontend in React/Next.js to deliver high-quality, responsive UI components. Features modern design patterns and optimal performance optimization with emphasis on code quality.",
-    image:
-      "https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?w=400&h=300&fit=crop",
-    technologies: [
-      "Next.js",
-      "React.js",
-      "JavaScript",
-      "Tailwind CSS",
-      "REST APIs",
+      "Website for a biomedical research support organization. I led the frontend and owned the React/Next.js UI.",
+    overview:
+      "PreLabs supports biomedical research organizations. Its site publishes news, a resource library, and information about its services.",
+    role: "Frontend Lead",
+    image: "/assets/projects/prelabs.webp",
+    technologies: ["Next.js", "React", "JavaScript", "Strapi CMS", "RESTful APIs", "Tailwind CSS"],
+    contributions: [
+      "Led frontend development and owned the React/Next.js UI",
+      "Built reusable, responsive page components",
+      "Connected pages to CMS content through REST APIs",
     ],
+    highlights: [{ label: "Role", value: "Frontend lead" }],
     demo: "https://www.prelabs.com/",
     featured: true,
     company: "GTek Solutions",
@@ -417,76 +553,78 @@ export const projects = [
     timeline: [
       {
         date: "Mar 2023",
-        title: "Frontend Leadership",
-        description: "Took lead role in frontend development architecture",
-      },
-      {
-        date: "May 2023",
-        title: "UI Component Library",
-        description: "Developed reusable, responsive UI component system",
+        title: "Frontend lead",
+        description: "Set up the Next.js frontend and component structure.",
       },
       {
         date: "Jun 2023",
-        title: "Performance Optimization",
-        description: "Optimized application for high-quality user experience",
+        title: "Launch",
+        description: "Shipped the responsive site.",
       },
     ],
   },
   {
-    id: "fbr-research",
-    title: "FBR (Foundation of Biomedical Research)",
+    id: "storiboard",
+    title: "Storiboard",
     description:
-      "Developed Stripe-integrated donation/payment platforms with advanced state management using Recoil. Features comprehensive research tools and user authentication with role-based access control.",
-    image:
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop",
-    technologies: [
-      "Next.js",
-      "React",
-      "JavaScript",
-      "Stripe",
-      "Recoil",
-      "Node.js",
-      "REST APIs",
-      "Tailwind CSS",
+      "Online collage design tool connected to third-party print and framing services, so customers get their design delivered as a physical print.",
+    overview:
+      "Storiboard let people lay out photos into a collage in the browser, then order it printed and framed. The order went to third-party print and framing partners for delivery.",
+    role: "Full Stack Software Engineer",
+    image: "/assets/projects/storiboard.webp",
+    technologies: ["React", "JavaScript", "Node.js", "Third-Party APIs"],
+    contributions: [
+      "Worked on the in-browser collage editor",
+      "Integrated third-party print and framing services for order fulfilment",
+    ],
+    highlights: [{ label: "Output", value: "Printed & framed" }],
+    featured: true,
+  },
+  {
+    id: "fbr-research",
+    title: "Foundation for Biomedical Research",
+    description:
+      "Nonprofit website with Stripe-powered donations. Built with Next.js and Recoil.",
+    overview:
+      "FBR educates the public on the role of animal research in medical progress. The site publishes programs, news, and stories, and takes online donations.",
+    role: "Full Stack Developer",
+    image: "/assets/projects/fbr-research.webp",
+    technologies: ["Next.js", "React", "Recoil", "Stripe", "Node.js", "RESTful APIs", "Tailwind CSS"],
+    contributions: [
+      "Built the site with Next.js and Recoil",
+      "Integrated Stripe for one-time and recurring donations",
     ],
     demo: "https://fbresearch.org/",
     featured: false,
     company: "GTek Solutions",
-    year: "2022-2023",
+    year: "2022 — 2023",
     timeline: [
       {
         date: "Dec 2022",
-        title: "Project Start",
-        description:
-          "Began development with Next.js and Stripe backend integration",
-      },
-      {
-        date: "Jan 2023",
-        title: "Payment System",
-        description: "Implemented comprehensive Stripe payment solutions",
+        title: "Build",
+        description: "Started the Next.js site and Stripe integration.",
       },
       {
         date: "Feb 2023",
-        title: "Launch & Optimization",
-        description: "Deployed platform and optimized for user experience",
+        title: "Launch",
+        description: "Shipped the site with donations live.",
       },
     ],
   },
   {
     id: "nabr-research",
-    title: "NABR (National Association of Biomedical Research)",
+    title: "National Association for Biomedical Research",
     description:
-      "Developed Stripe-integrated donation/payment platforms with advanced state management using Recoil. Sibling project to FBR with enhanced collaboration features and optimal user experience.",
-    image:
-      "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&h=300&fit=crop",
-    technologies: [
-      "Next.js",
-      "React",
-      "JavaScript",
-      "Recoil",
-      "Stripe",
-      "Node.js",
-      "GraphQL",
+      "Sister site to FBR for NABR's policy and membership work, with Stripe payments.",
+    overview:
+      "NABR is a nonprofit association working on public policy for the humane use of animals in research. Its site covers policy updates, membership, and calls to action.",
+    role: "Full Stack Developer",
+    image: "/assets/projects/nabr-research.webp",
+    technologies: ["Next.js", "React", "Recoil", "Stripe", "Node.js", "GraphQL"],
+    contributions: [
+      "Built the site on the same foundation as FBR",
+      "Integrated Stripe payments",
+      "Managed state with Recoil",
     ],
     demo: "https://www.nabr.org/",
     featured: false,
@@ -495,68 +633,51 @@ export const projects = [
     timeline: [
       {
         date: "Feb 2023",
-        title: "Project Initiation",
-        description: "Started development building on FBR project experience",
-      },
-      {
-        date: "Mar 2023",
-        title: "State Management",
-        description: "Implemented advanced Recoil state management patterns",
+        title: "Build",
+        description: "Started from the FBR codebase.",
       },
       {
         date: "Apr 2023",
-        title: "Production Ready",
-        description:
-          "Completed development with enhanced user experience features",
+        title: "Launch",
+        description: "Shipped the site.",
       },
     ],
   },
   {
     id: "capobiz-pos",
-    title: "Capobiz (POS)",
+    title: "CapoBiz POS",
     description:
-      "Built a complete POS system using Laravel 8 and SQL, migrating from a legacy C# desktop app. Features inventory management, sales tracking, and user authentication with modern web technologies.",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
-    technologies: [
-      "Laravel",
-      "PHP",
-      "SQL",
-      "Blade",
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "Bootstrap",
+      "Web-based point of sale rebuilt from a C# desktop app in Laravel 8 and SQL.",
+    overview:
+      "CapoBiz is a point-of-sale system for small businesses: sales, inventory, and receipts. It started as a C# desktop app and was rebuilt for the web.",
+    role: "Intern, then Junior Developer",
+    image: "/assets/projects/capobiz-pos.webp",
+    technologies: ["Laravel", "PHP", "SQL", "Blade", "JavaScript", "Bootstrap", "cPanel"],
+    contributions: [
+      "Helped migrate features from the C# desktop app to Laravel 8",
+      "Built inventory, sales, and user login features",
+      "Deployed the app to production on cPanel",
     ],
     demo: "https://pos.technicmentors.com/",
     featured: false,
     company: "Technic Mentors",
-    year: "2021-2022",
+    year: "2021 — 2022",
     timeline: [
       {
         date: "Jul 2021",
-        title: "Project Initiation",
-        description: "Started development of web-based POS system as intern",
-      },
-      {
-        date: "Sep 2021",
-        title: "Core Features Development",
-        description:
-          "Implemented inventory management, sales tracking, and user authentication",
+        title: "Rewrite starts",
+        description: "Began moving the desktop POS to Laravel 8 and SQL.",
       },
       {
         date: "Dec 2021",
-        title: "Migration & Testing",
-        description:
-          "Successfully migrated C# desktop functionality to web platform",
+        title: "Feature parity",
+        description: "Moved over inventory, sales, and authentication.",
       },
       {
         date: "Feb 2022",
-        title: "Production Deployment",
-        description:
-          "Deployed on cPanel with proper configuration and optimization",
+        title: "Production",
+        description: "Deployed on cPanel.",
       },
     ],
   },
 ];
-

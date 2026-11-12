@@ -59,33 +59,27 @@ export default function Experience() {
           ))}
         </ol>
         <div className="mt-12">
-          <Link
-            className="inline-flex items-baseline font-medium leading-tight text-slate-800 dark:text-slate-200 hover:text-portfolio focus-visible:text-portfolio font-semibold group/link text-base transition-colors"
-            href="/bilal_resume.pdf"
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-label="View Full Résumé (opens in a new tab)"
+          <a
+            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-portfolio px-6 text-sm font-semibold text-white shadow-lg shadow-portfolio/25 transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-portfolio group/link"
+            href="/Muhammad-Bilal-Yousaf-Resume.pdf"
+            download="Muhammad-Bilal-Yousaf-Resume.pdf"
+            aria-label="Download résumé (PDF)"
           >
-            <span>
-              View Full{" "}
-              <span className="inline-block">
-                Résumé
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5 12h14m-7-7 7 7-7 7"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </span>
-            </span>
-          </Link>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4 transition-transform group-hover/link:translate-y-0.5 motion-reduce:transition-none"
+              aria-hidden="true"
+            >
+              <path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14" />
+            </svg>
+            Download Résumé
+          </a>
         </div>
       </div>
     </section>
