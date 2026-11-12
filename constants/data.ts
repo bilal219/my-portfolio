@@ -21,16 +21,6 @@ export const socialLinks = [
     url: "https://linkedin.com/in/muhammad-bilal-yousaf-dev",
     icon: "linkedin",
   },
-  {
-    name: "Threads",
-    url: "https://threads.net/@balli.219",
-    icon: "threads",
-  },
-  {
-    name: "Instagram",
-    url: "https://instagram.com/balli.219",
-    icon: "instagram",
-  },
 ];
 
 export const navigation = [

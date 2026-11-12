@@ -4,12 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { navigation, socialLinks } from "@/constants/data";
 
-// GitHub and LinkedIn sit in the CTA row next to the résumé button;
-// the remaining socials stay in the icon row at the bottom of the header.
-const CTA_ICONS = ["github", "linkedin"];
-const ctaLinks = socialLinks.filter((l) => CTA_ICONS.includes(l.icon));
-const otherSocials = socialLinks.filter((l) => !CTA_ICONS.includes(l.icon));
-
 const BRAND_ICONS = {
   github:
     "M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z",
@@ -63,7 +57,7 @@ export default function Navigation() {
       </svg>
 
 
-      <header className="pt-20 pb-8 lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 lg:[@media(max-height:820px)]:py-12 relative z-20">
+      <header className="pt-20 pb-8 lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 relative z-20">
         <div className="flex flex-col items-start justify-center gap-8 lg:gap-6">
           <h1 className="font-bold tracking-tight text-slate-800 dark:text-slate-200 sm:text-sm text-[8px] font-dreams leading-[4.5]">
             <Link href="/">
@@ -76,7 +70,7 @@ export default function Navigation() {
           <p className=" leading-normal font-helvetica text-slate-600 dark:text-slate-400">
             I build production SaaS apps end to end, from the database to the UI. 4+ years with React, Next.js, Node.js, and now Angular and .NET.
           </p>
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-3">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
             <a
               href="/Muhammad-Bilal-Yousaf-Resume.pdf"
               download="Muhammad-Bilal-Yousaf-Resume.pdf"
@@ -97,29 +91,32 @@ export default function Navigation() {
               </svg>
               Download Résumé
             </a>
-            {ctaLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.url}
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label={`${link.name} (opens in a new tab)`}
-                className="inline-flex h-11 items-center gap-2 rounded-full border border-slate-300 px-4 text-sm font-semibold text-slate-700 transition-colors hover:border-portfolio hover:text-portfolio focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-portfolio dark:border-slate-700 dark:text-slate-200 dark:hover:border-portfolio dark:hover:text-portfolio"
-              >
-                <svg className="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d={BRAND_ICONS[link.icon as keyof typeof BRAND_ICONS]} />
-                </svg>
-                {link.name}
-              </a>
-            ))}
+            <ul className="flex items-center gap-1" aria-label="Social profiles">
+              {socialLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label={`${link.name} (opens in a new tab)`}
+                    title={link.name}
+                    className="icon-portfolio-gradient flex h-11 w-11 items-center justify-center rounded-full transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-portfolio motion-reduce:transition-none"
+                  >
+                    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d={BRAND_ICONS[link.icon as keyof typeof BRAND_ICONS]} />
+                    </svg>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
           <nav className="nav hidden lg:block" aria-label="In-page jump links">
-            <ul className="mt-4 w-max lg:[@media(max-height:820px)]:mt-0">
+            <ul className="mt-8 w-max">
               {navigation.map((item) => (
                 <li key={item.name}>
                   <button
                     onClick={() => scrollToSection(item.href)}
-                    className={`group flex items-center py-3 [@media(max-height:820px)]:py-2 ${
+                    className={`group flex items-center py-3 ${
                       activeSection === item.href.slice(1)
                         ? "text-slate-700 dark:text-slate-200"
                         : "text-slate-500 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-200"
@@ -146,41 +143,6 @@ export default function Navigation() {
               ))}
             </ul>
           </nav>
-        </div>
-        <div className="ml-1 mt-8 flex flex-wrap items-center gap-y-4 lg:[@media(max-height:820px)]:mt-4">
-        <ul className="flex items-center" aria-label="Social media">
-          {otherSocials.map((link) => (
-            <li key={link.name} className="mr-5 text-xs shrink-0">
-              <a
-                className="block icon-portfolio-gradient"
-                href={link.url}
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label={`${link.name} (opens in a new tab)`}
-              >
-                <span className="sr-only">{link.name}</span>
-                <svg
-                  className="h-6 w-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  {link.icon === "github" && (
-                    <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
-                  )}
-                  {link.icon === "linkedin" && (
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                  )}
-                  {link.icon === "threads" && (
-                    <path d="M19.056 11.508c-0.3924-0.29548-0.8142-0.55010-1.2585-0.75987-0.4523-3.37988-2.7138-4.44506-3.7428-4.75715-2.2367-0.67846-4.8069 0.13456-5.9761 1.88839-0.3865 0.5797-0.0005 1.3604 0.6948 1.4053 0.3227 0.02081 0.6320-0.13211 0.8114-0.40117 0.7203-1.08101 2.4877-1.60117 3.9453-1.1613 1.1251 0.33923 1.9020 1.1647 2.2785 2.37461-0.5699-0.10850-1.1488-0.16264-1.7289-0.1617-1.5740 0-3.0474 0.40595-4.1465 1.14208-1.2936 0.87409-2.0060 2.16655-2.0060 3.63655 0 2.32712 1.7934 4.01649 4.2641 4.01649 1.4679-0.01000 2.8692-0.61416 3.8842-1.67468 0.7282-0.75761 1.5831-2.07609 1.7651-4.19515 0.0430 0.0294 0.0837 0.05993 0.1244 0.09046 1.1432 0.86391 1.7222 2.06592 1.7222 3.57211 0 2.18917-2.2999 5.42768-7.2369 5.42768-3.0225 0-5.1427-0.97811-6.4838-2.98975C4.8667 17.31461 4.3092 14.9694 4.3092 12s0.5575-5.31461 1.6577-6.96101c1.3411-2.01164 3.4613-2.98975 6.4838-2.98975 3.7236 0 6.1062 1.49826 7.2969 4.58187 0.2429 0.65262 1.1013 0.79753 1.5450 0.26083 0.2106-0.25471 0.2655-0.60398 0.1433-0.91103C20.9907 2.22564 16.8834 0.24 12.4508 0.24c-3.6185 0-6.3108 1.27664-7.9900 3.79486C3.1592 5.9877 2.5000 8.6665 2.5000 12s0.6592 6.0123 1.9608 7.9651c1.6792 2.51822 4.3715 3.79486 7.9900 3.79486 3.4002 0 5.5295-1.29813 6.7168-2.38593 1.4587-1.33657 2.3294-3.15484 2.3294-4.85099 0-2.07383-0.8436-3.80843-2.4402-5.01499Zm-4.2845 4.29693c-0.6735 0.70652-1.6043 1.11034-2.5804 1.11946-1.2224 0-2.4549-0.67846-2.4549-2.20726 0-1.42816 1.3569-2.96375 4.3433-2.96375 0.6725-0.00182 1.3420 0.09028 1.9890 0.27365 0 1.59212-0.4523 2.89703-1.2970 3.77449Z" strokeWidth="1"/>
-                  )}
-                  {link.icon === "instagram" && (
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                  )}
-                </svg>
-              </a>
-            </li>
-          ))}
-        </ul>
         </div>
       </header>
 
