@@ -9,10 +9,49 @@ const escapeHtml = (value: string) =>
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
 
+const LIMITS = { name: 100, email: 254, message: 5000 };
+
+// Best-effort rate limit: 5 messages per IP per 10 minutes. On serverless this
+// is per instance, which is still enough to stop a single bot from flooding
+// the inbox.
+const WINDOW_MS = 10 * 60 * 1000;
+const MAX_PER_WINDOW = 5;
+const hits = new Map<string, number[]>();
+
+function isRateLimited(ip: string) {
+  const now = Date.now();
+  const recent = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
+  recent.push(now);
+  hits.set(ip, recent);
+  if (hits.size > 1000) {
+    for (const [key, times] of hits) {
+      if (times.every((t) => now - t >= WINDOW_MS)) hits.delete(key);
+    }
+  }
+  return recent.length > MAX_PER_WINDOW;
+}
+
 export async function POST(request: NextRequest) {
   try {
+    const ip =
+      request.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
+      request.headers.get("x-real-ip") ||
+      "unknown";
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: "Too many messages. Please try again in a few minutes." },
+        { status: 429 }
+      );
+    }
+
     const body = await request.json();
-    const { name, email, message } = body;
+    const { name, email, message, website } = body ?? {};
+
+    // Honeypot: real visitors never see this field. Pretend it worked so bots
+    // don't learn to skip it.
+    if (typeof website === "string" && website.trim() !== "") {
+      return NextResponse.json({ success: true, message: "Message sent successfully" });
+    }
 
     if (
       typeof name !== "string" ||
@@ -22,17 +61,28 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid input" }, { status: 400 });
     }
 
-    const safeName = escapeHtml(name);
-    const safeEmail = escapeHtml(email);
-    const safeMessage = escapeHtml(message);
-
     // Validate required fields
-    if (!name || !email || !message) {
+    if (!name.trim() || !email.trim() || !message.trim()) {
       return NextResponse.json(
         { error: "All fields are required" },
         { status: 400 }
       );
     }
+
+    if (
+      name.length > LIMITS.name ||
+      email.length > LIMITS.email ||
+      message.length > LIMITS.message
+    ) {
+      return NextResponse.json(
+        { error: `Please keep your message under ${LIMITS.message} characters.` },
+        { status: 400 }
+      );
+    }
+
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeMessage = escapeHtml(message);
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -137,12 +187,7 @@ Reply to this email to respond directly to ${name}.
     // Send email
     await transporter.sendMail(mailOptions);
 
-    // Log successful submission
-    console.log("Contact form submission sent:", {
-      name,
-      email,
-      timestamp: new Date().toISOString(),
-    });
+    console.log("Contact form submission sent at", new Date().toISOString());
 
     return NextResponse.json(
       {

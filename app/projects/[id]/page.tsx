@@ -1,9 +1,9 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/constants/data";
 import { Timeline } from "@/components/ui/Timeline";
+import ProjectShowcase from "@/components/ProjectShowcase";
 
 interface ProjectPageProps {
   params: Promise<{ id: string }>;
@@ -43,7 +43,11 @@ export async function generateMetadata({
     openGraph: {
       title: `${project.title} | Muhammad Bilal Yousaf`,
       description: project.description,
-      images: [{ url: project.image, width: 1200, height: 750, alt: project.title }],
+      images: [
+        project.screenshot
+          ? { url: project.screenshot, width: 1440, height: 900, alt: project.title }
+          : { url: project.image, width: 1200, height: 750, alt: project.title },
+      ],
       type: "website",
       siteName: "Muhammad Bilal Yousaf Portfolio",
     },
@@ -51,7 +55,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `${project.title} | Muhammad Bilal Yousaf`,
       description: project.description,
-      images: [project.image],
+      images: [project.screenshot ?? project.image],
     },
     alternates: { canonical: `/projects/${id}` },
   };
@@ -100,7 +104,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               jobTitle: "Full Stack Software Engineer",
               url: SITE_URL,
             },
-            image: `${SITE_URL}${project.image}`,
+            image: `${SITE_URL}${project.screenshot ?? project.image}`,
             url: project.demo,
             keywords: project.technologies.join(", "),
           }),
@@ -177,17 +181,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           ))}
         </dl>
 
-        {/* Cover */}
-        <div className="relative mt-10 aspect-[16/10] overflow-hidden rounded-2xl border border-slate-200 shadow-2xl shadow-slate-900/10 dark:border-slate-800 dark:shadow-black/40">
-          <Image
-            src={project.image}
-            alt={`${project.title} logo`}
-            fill
-            priority
-            sizes="(min-width: 1024px) 896px, 100vw"
-            className="object-cover"
-          />
-        </div>
+        {/* Cover: screenshot that turns into an interactive 3D laptop */}
+        <ProjectShowcase
+          src={project.screenshot ?? project.image}
+          alt={project.screenshot ? `${project.title} screenshot` : `${project.title} logo`}
+        />
 
         {/* Highlights */}
         {project.highlights && project.highlights.length > 0 && (

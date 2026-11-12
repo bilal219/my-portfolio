@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { projects } from '@/constants/data';
+import TiltCard from '@/components/ui/TiltCard';
 
 export default function Projects() {
   const featuredProjects = projects.filter(project => project.featured);
@@ -16,12 +17,13 @@ export default function Projects() {
         <ul className="group/list">
           {featuredProjects.map((project) => (
             <li key={project.id} className="mb-12">
+              <TiltCard max={10}>
               <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
                 <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block"></div>
                 <div className="z-10 sm:order-2 sm:col-span-6">
                   <h3>
                     <Link
-                      className="inline-flex items-baseline font-medium text-slate-800 dark:text-slate-800 dark:text-white hover:text-portfolio focus-visible:text-portfolio group/link font-sans leading-normal text-xl transition-colors"
+                      className="inline-flex items-baseline font-medium text-slate-800 dark:text-white hover:text-portfolio focus-visible:text-portfolio group/link font-sans leading-normal text-xl transition-colors"
                       href={`/projects/${project.id}`}
                       aria-label={`${project.title} (view project details)`}
                     >
@@ -88,22 +90,26 @@ export default function Projects() {
                     ))}
                   </ul>
                 </div>
-                <Image
-                  alt={`${project.title} logo`}
-                  loading="lazy"
-                  width={400}
-                  height={250}
-                  sizes="(min-width: 640px) 200px, 100vw"
-                  className="aspect-[16/10] w-full rounded-lg border border-slate-300/40 object-cover shadow-sm transition group-hover:border-portfolio/40 group-hover:shadow-md dark:border-slate-200/10 sm:order-1 sm:col-span-2 sm:translate-y-1"
-                  src={project.image}
-                />
+                <div className="tilt-target relative overflow-hidden rounded-lg border border-slate-300/40 shadow-sm transition group-hover:border-portfolio/40 group-hover:shadow-lg group-hover:shadow-portfolio/10 dark:border-slate-200/10 self-start sm:order-1 sm:col-span-2 sm:translate-y-1">
+                  <Image
+                    alt={project.screenshot ? `${project.title} screenshot` : `${project.title} logo`}
+                    loading="lazy"
+                    width={400}
+                    height={250}
+                    sizes="(min-width: 640px) 200px, 100vw"
+                    className="block aspect-[16/10] w-full object-cover"
+                    src={project.screenshot ?? project.image}
+                  />
+                  <span className="tilt-glare" aria-hidden="true" />
+                </div>
               </div>
+              </TiltCard>
             </li>
           ))}
         </ul>
         <div className="mt-12">
           <Link
-            className="inline-flex items-center font-medium leading-tight text-slate-800 dark:text-slate-800 dark:text-white hover:text-portfolio focus-visible:text-portfolio font-semibold group/link text-base transition-colors"
+            className="inline-flex items-center font-medium leading-tight text-slate-800 dark:text-white hover:text-portfolio focus-visible:text-portfolio font-semibold group/link text-base transition-colors"
             href="/projects"
             aria-label="View all projects"
           >

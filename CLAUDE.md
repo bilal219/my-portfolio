@@ -17,14 +17,15 @@ Next.js 15 App Router, React 19, TypeScript, Tailwind CSS v4 (configured through
 
 ## Architecture
 
-- **Content is data-driven.** All portfolio content (`personalInfo`, `socialLinks`, `navigation`, `skills`, `experiences`, `education`, `projects`) lives in `constants/data.ts`. To edit content, change that file, not the components. Every experience and project has a slug `id`.
+- **Content is data-driven.** All portfolio content (`personalInfo`, `socialLinks`, `navigation`, `skills`, `experiences`, `education`, `projects`) lives in `constants/data.ts`. To edit content, change that file, not the components. Every experience and project has a slug `id`. Projects have an `image` and an optional `screenshot` (16:10); the UI prefers the screenshot when one is set.
 - **Routes:**
-  - `app/page.tsx` is the single-page home. It renders the section components from `components/` in this order: About, Skills, Education, Experience, Projects, Contact.
+  - `app/page.tsx` is the single-page home. It renders the section components from `components/` in this order: About, Experience, Projects, Skills, Education, Contact. Keep `navigation` in `data.ts` in the same order.
   - `app/projects/[id]` and `app/experience/[id]` are detail pages. They use `generateStaticParams` and `generateMetadata` over the arrays in `data.ts`, and `params` is a `Promise` (Next 15).
   - `app/projects/page.tsx` lists all projects.
-  - `app/api/contact/route.ts` is a POST handler that validates input and sends mail through SMTP.
+  - `app/api/contact/route.ts` is a POST handler that rate-limits per IP, drops honeypot (`website` field) submissions, validates input and sends mail through SMTP.
 - **Layout** (`app/layout.tsx`): loads the local fonts DREAMS and Helvetica Now from `app/fonts` as the CSS variables `--font-dreams` and `--font-helvetica`, holds the full SEO metadata, and mounts the global `AnimatedSphereBackground`, `ScrollToTop` and `ThemeToggle`. Page content is a two-column flex layout at `lg`.
 - **Theming:** class-based dark mode via `@custom-variant dark` in `app/globals.css`. The root layout renders `<html class="dark">`, so every visit opens in dark mode. `ThemeToggle` switches to light for the current visit only and persists nothing (it also clears the old `localStorage.theme` key). Custom design tokens (`portfolio`, `content`, `active`, gradient colors) are defined in the `@theme` block of `globals.css`, and `.dark` overrides `--color-portfolio`.
+- **3D:** `AnimatedSphereBackground` renders static gradients on the server and `BackgroundCanvas` lazy-loads `components/three/ParticleField` (cursor and scroll parallax). Case-study covers use `ProjectShowcase`, which shows the flat screenshot first and then fades into `components/three/LaptopScene` (drei). Both skip WebGL for reduced motion or no WebGL support. `components/ui/TiltCard` adds the CSS 3D tilt (styles in `globals.css`).
 - **Shared UI:** `components/common` (Button, Input, Textarea, re-exported from `index.ts`), `components/ui/Timeline.tsx`, and the `cn()` helper (clsx + tailwind-merge) in `lib/utils.ts`.
 - **Remote images** are allowed only from `images.unsplash.com`, `picsum.photos` and `fastly.picsum.photos` (see `next.config.ts`). Local images go in `public/`.
 

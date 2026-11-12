@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/constants/data";
+import TiltCard from "@/components/ui/TiltCard";
 
 export const metadata: Metadata = {
   title: "Projects | Muhammad Bilal Yousaf - Full Stack Software Engineer",
@@ -44,17 +45,18 @@ export default function ProjectsPage() {
       <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <li key={project.id}>
+            <TiltCard self max={7} className="h-full rounded-2xl">
             <Link
               href={`/projects/${project.id}`}
-              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white/60 transition hover:-translate-y-1 hover:border-portfolio/40 hover:shadow-xl hover:shadow-portfolio/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-portfolio motion-reduce:transition-none motion-reduce:hover:translate-y-0 dark:border-slate-800 dark:bg-slate-900/60"
+              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white/60 transition hover:border-portfolio/40 hover:shadow-xl hover:shadow-portfolio/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-portfolio motion-reduce:transition-none dark:border-slate-800 dark:bg-slate-900/60"
             >
               <div className="relative aspect-[16/10] overflow-hidden border-b border-slate-200 dark:border-slate-800">
                 <Image
-                  src={project.image}
-                  alt={`${project.title} logo`}
+                  src={project.screenshot ?? project.image}
+                  alt={project.screenshot ? `${project.title} screenshot` : `${project.title} logo`}
                   fill
                   sizes="(min-width: 1024px) 320px, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none"
                 />
               </div>
               <div className="flex flex-1 flex-col p-5">
@@ -79,6 +81,7 @@ export default function ProjectsPage() {
                 </ul>
               </div>
             </Link>
+            </TiltCard>
           </li>
         ))}
       </ul>

@@ -7,7 +7,6 @@ export const personalInfo = {
   linkedin: "https://linkedin.com/in/muhammad-bilal-yousaf-dev",
   website: "https://muhammad-bilal-yousaf.vercel.app",
   bio: "Full Stack Software Engineer with 4+ years of experience building production SaaS applications with React, Next.js, Node.js, and GraphQL, and more recently Angular and ASP.NET Core.",
-  avatar: "/avatar.jpg",
 };
 
 export const socialLinks = [
@@ -25,73 +24,40 @@ export const socialLinks = [
 
 export const navigation = [
   { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Education", href: "#education" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
+  { name: "Skills", href: "#skills" },
+  { name: "Education", href: "#education" },
   { name: "Contact", href: "#contact" },
 ];
 
-// Grouped so every item sits under the heading it belongs to.
+// Kept short on purpose: only skills worth being interviewed on.
+// Older or minor tools (Laravel, PHP, Adobe XD, etc.) still appear in the
+// experience and project entries where they were used.
 export const skills: { title: string; items: string[] }[] = [
   {
     title: "Languages",
-    items: ["TypeScript", "JavaScript", "C#", "PHP", "SQL"],
+    items: ["TypeScript", "JavaScript", "C#", "SQL"],
   },
   {
     title: "Frontend",
-    items: [
-      "React",
-      "Next.js",
-      "Angular",
-      "Vue.js",
-      "Recoil",
-      "Tailwind CSS",
-      "shadcn/ui",
-      "Ant Design",
-      "SASS",
-      "HTML5",
-      "CSS3",
-    ],
+    items: ["React", "Next.js", "Angular", "Vue.js", "Tailwind CSS"],
   },
   {
     title: "Backend & APIs",
-    items: [
-      "Node.js",
-      "Express.js",
-      "NestJS",
-      "ASP.NET Core Web API",
-      "Laravel",
-      "Strapi CMS",
-      "RESTful APIs",
-      "GraphQL",
-      "JWT & OAuth",
-    ],
+    items: ["Node.js", "Express.js", "NestJS", "ASP.NET Core", "GraphQL", "REST APIs"],
   },
   {
     title: "Databases",
-    items: ["PostgreSQL", "MongoDB", "MySQL", "SQL Server"],
+    items: ["PostgreSQL", "MongoDB", "SQL Server", "MySQL"],
   },
   {
-    title: "Payments & Security",
-    items: [
-      "Stripe Billing",
-      "Stripe Webhooks",
-      "Fully Homomorphic Encryption (FHE)",
-      "Role-Based Access Control",
-    ],
-  },
-  {
-    title: "AI",
-    items: ["AI-Powered Search", "Cursor", "Claude"],
+    title: "Specialties",
+    items: ["Stripe Billing & Webhooks", "AI-Powered Search", "Encryption (FHE)", "Role-Based Access Control"],
   },
   {
     title: "Cloud & DevOps",
-    items: ["AWS (EC2, S3)", "Docker", "CI/CD", "PM2", "Git"],
-  },
-  {
-    title: "Design & Process",
-    items: ["Figma", "Adobe XD", "Agile/Scrum"],
+    items: ["AWS (EC2, S3)", "Docker", "CI/CD", "Git"],
   },
 ];
 
@@ -320,7 +286,10 @@ export interface Project {
   /** What the product is, for the case-study page. */
   overview: string;
   role: string;
+  /** Logo or brand image (used when there is no screenshot). */
   image: string;
+  /** Real screenshot of the product. Shown on cards and in the 3D mockup. */
+  screenshot?: string;
   technologies: string[];
   /** What I personally built or owned. */
   contributions: string[];
@@ -334,6 +303,62 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    id: "h33-ai",
+    title: "H33",
+    description:
+      "Secure storage SaaS. I owned file and folder management, built the AI-powered search, and added Fully Homomorphic Encryption (FHE) for stored files.",
+    overview:
+      "H33 is a cybersecurity platform focused on post-quantum security and AI governance. I worked on its secure storage product, where users upload, share, and search files that stay encrypted.",
+    role: "Full Stack Software Engineer",
+    image: "/assets/projects/h33-ai.webp",
+    technologies: [
+      "Next.js",
+      "Vue.js",
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "FHE",
+      "AI-Powered Search",
+      "Tailwind CSS",
+    ],
+    contributions: [
+      "Owned file and folder management end to end: uploads, sharing, permission controls, and custom actions",
+      "Built AI-powered search with prompt-based and suggestion-based querying",
+      "Scoped search results with access control, so users only see files they are allowed to see",
+      "Added Fully Homomorphic Encryption (FHE) alongside standard encryption for stored files and folders",
+      "Optimized storage modules for stability and performance",
+      "Learned Vue.js on the job to work across the frontend",
+    ],
+    highlights: [
+      { label: "Encryption", value: "FHE" },
+      { label: "Search", value: "AI-powered" },
+      { label: "Ownership", value: "End to end" },
+    ],
+    demo: "https://h33.ai/",
+    featured: true,
+    company: "Crewlogix Technologies",
+    year: "2025 — 2026",
+    timeline: [
+      {
+        date: "Jun 2025",
+        title: "File and folder management",
+        description: "Uploads, sharing, permissions, and custom actions.",
+      },
+      {
+        date: "Jul 2025 — Aug 2025",
+        title: "Encryption",
+        description: "FHE plus standard encryption for stored data.",
+      },
+      {
+        date: "Sep 2025 — May 2026",
+        title: "AI search and tuning",
+        description:
+          "Prompt-based and suggestion-based search with per-user access control, plus storage performance work.",
+      },
+    ],
+  },
   {
     id: "home-school-panda",
     title: "Home School Panda",
@@ -456,7 +481,7 @@ export const projects: Project[] = [
       { label: "Users", value: "Engineers & architects" },
     ],
     demo: "https://sealpact.com/",
-    featured: true,
+    featured: false,
   },
   {
     id: "fbr-research",
@@ -486,62 +511,6 @@ export const projects: Project[] = [
         date: "Feb 2023",
         title: "Launch",
         description: "Shipped the site with donations live.",
-      },
-    ],
-  },
-  {
-    id: "h33-ai",
-    title: "H33",
-    description:
-      "Secure storage SaaS. I owned file and folder management, built the AI-powered search, and added Fully Homomorphic Encryption (FHE) for stored files.",
-    overview:
-      "H33 is a cybersecurity platform focused on post-quantum security and AI governance. I worked on its secure storage product, where users upload, share, and search files that stay encrypted.",
-    role: "Full Stack Software Engineer",
-    image: "/assets/projects/h33-ai.webp",
-    technologies: [
-      "Next.js",
-      "Vue.js",
-      "React",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "FHE",
-      "AI-Powered Search",
-      "Tailwind CSS",
-    ],
-    contributions: [
-      "Owned file and folder management end to end: uploads, sharing, permission controls, and custom actions",
-      "Built AI-powered search with prompt-based and suggestion-based querying",
-      "Scoped search results with access control, so users only see files they are allowed to see",
-      "Added Fully Homomorphic Encryption (FHE) alongside standard encryption for stored files and folders",
-      "Optimized storage modules for stability and performance",
-      "Learned Vue.js on the job to work across the frontend",
-    ],
-    highlights: [
-      { label: "Encryption", value: "FHE" },
-      { label: "Search", value: "AI-powered" },
-      { label: "Ownership", value: "End to end" },
-    ],
-    demo: "https://h33.ai/",
-    featured: false,
-    company: "Crewlogix Technologies",
-    year: "2025 — 2026",
-    timeline: [
-      {
-        date: "Jun 2025",
-        title: "File and folder management",
-        description: "Uploads, sharing, permissions, and custom actions.",
-      },
-      {
-        date: "Jul 2025 — Aug 2025",
-        title: "Encryption",
-        description: "FHE plus standard encryption for stored data.",
-      },
-      {
-        date: "Sep 2025 — May 2026",
-        title: "AI search and tuning",
-        description:
-          "Prompt-based and suggestion-based search with per-user access control, plus storage performance work.",
       },
     ],
   },

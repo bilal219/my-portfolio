@@ -175,10 +175,10 @@ export default function Navigation() {
       </header>
 
       {/* Mobile Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 z-50 lg:hidden flex justify-center">
+      <nav className="fixed bottom-0 left-0 right-0 z-50 lg:hidden flex justify-center" aria-label="Sections">
         <div className="mx-4 mb-4 w-full max-w-[450px]">
           <div className="backdrop-blur-md bg-white/40 dark:bg-slate-900/40 border border-slate-200/30 dark:border-slate-700/30 rounded-2xl shadow-lg">
-            <div className="flex items-center justify-around px-4 py-3">
+            <div className="flex items-center justify-around px-2 py-2">
               {navigation.map((item) => {
                 const getIcon = (name: string) => {
                   switch (name) {
@@ -309,17 +309,24 @@ export default function Navigation() {
                   }
                 };
 
+                const isActive = activeSection === item.href.slice(1);
                 return (
                   <button
                     key={item.name}
+                    type="button"
                     onClick={() => scrollToSection(item.href)}
-                    className={`flex items-center justify-center p-3 rounded-xl transition-all duration-200 ${
-                      activeSection === item.href.slice(1)
+                    aria-label={`Go to ${item.name}`}
+                    aria-current={isActive ? "location" : undefined}
+                    className={`flex min-w-11 flex-col items-center justify-center gap-1 rounded-xl px-1.5 py-2 transition-all duration-200 ${
+                      isActive
                         ? "text-portfolio bg-portfolio/10"
                         : "text-slate-500 dark:text-slate-400 hover:text-portfolio hover:bg-portfolio/5"
                     }`}
                   >
-                    {getIcon(item.name)}
+                    <span aria-hidden="true">{getIcon(item.name)}</span>
+                    <span className="text-[10px] font-medium leading-none" aria-hidden="true">
+                      {item.name}
+                    </span>
                   </button>
                 );
               })}
