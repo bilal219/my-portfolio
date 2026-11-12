@@ -102,7 +102,7 @@ export default function Navigation() {
             <a
               href="/Muhammad-Bilal-Yousaf-Resume.pdf"
               download="Muhammad-Bilal-Yousaf-Resume.pdf"
-              className="group inline-flex h-11 items-center gap-2 rounded-full bg-gradient-to-r from-portfolio to-[#005577] px-5 text-sm font-semibold text-white shadow-lg shadow-portfolio/25 transition hover:shadow-portfolio/40 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-portfolio dark:to-[#0096c7] dark:text-slate-900"
+              className="btn-gradient-shimmer group inline-flex items-center gap-2"
               aria-label="Download résumé (PDF)"
             >
               <svg
