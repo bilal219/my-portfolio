@@ -108,9 +108,9 @@ export default function Projects() {
             aria-label="View all projects"
           >
             <span>
-              View Full{" "}
+              View all{" "}
               <span className="inline-block">
-                Project Archive
+                projects
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"

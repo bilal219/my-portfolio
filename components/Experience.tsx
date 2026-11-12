@@ -19,7 +19,7 @@ export default function Experience() {
             href="/experience"
             className="group/link inline-flex items-center font-semibold leading-tight text-slate-800 transition-colors hover:text-portfolio focus-visible:text-portfolio dark:text-white"
           >
-            View Full Experience
+            View all experiences
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
