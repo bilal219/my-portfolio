@@ -34,8 +34,9 @@ const helvetica = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://muhammad-bilal-yousaf.vercel.app"),
   title: "Muhammad Bilal Yousaf | Full Stack Software Engineer",
+  // Kept under ~155 characters so search results show it in full.
   description:
-    "Full Stack Software Engineer with 4+ years of experience building production SaaS applications with React, Next.js, Node.js, and GraphQL, and more recently Angular and ASP.NET Core. Strongest in AI-powered search, secure file storage, and Stripe billing.",
+    "Full Stack Software Engineer in Lahore with 4+ years building SaaS apps in React, Next.js, Node.js, Angular and ASP.NET Core. AI search, FHE, Stripe.",
   keywords: ["Muhammad Bilal Yousaf","Full Stack Software Engineer","Software Engineer Lahore","React Developer","Next.js Developer","Node.js Developer","Angular Developer","ASP.NET Core Developer","TypeScript","C#","GraphQL","RESTful APIs","NestJS","MongoDB","PostgreSQL","SQL Server","Stripe Integration","AI-Powered Search","Fully Homomorphic Encryption","AWS","Docker","SaaS Applications"].join(", "),
   authors: [
     {
@@ -84,9 +85,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  verification: {
-    google: "google-site-verification-code", // Add your actual verification code
   },
   category: "Technology",
 };

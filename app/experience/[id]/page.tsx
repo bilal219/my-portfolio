@@ -31,27 +31,26 @@ export async function generateMetadata({
 
   return {
     title: `${experience.position} at ${experience.company} | Muhammad Bilal Yousaf - Full Stack Software Engineer`,
-    description: `${experience.description} Technologies used: ${experience.technologies.slice(0, 5).join(', ')}. View detailed work experience timeline and achievements.`,
+    description: experience.description,
     keywords: [
       "Muhammad Bilal Yousaf",
       "Full Stack Software Engineer",
-      "Work Experience", 
       experience.position,
       experience.company,
       ...experience.technologies,
-      "Software Engineer",
-      "Career Journey"
     ].join(", "),
     openGraph: {
       title: `${experience.position} at ${experience.company} | Muhammad Bilal Yousaf`,
       description: experience.description,
       type: "website",
-      siteName: "Muhammad Bilal Yousaf Portfolio"
+      siteName: "Muhammad Bilal Yousaf Portfolio",
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Muhammad Bilal Yousaf - Full Stack Software Engineer" }],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: `${experience.position} at ${experience.company} | Muhammad Bilal Yousaf`,
-      description: experience.description
+      description: experience.description,
+      images: ["/og-image.png"],
     },
     alternates: {
       canonical: `/experience/${id}`
