@@ -124,7 +124,10 @@ function makeLabelTexture(keys: KeyRect[]) {
   canvas.width = 2048;
   canvas.height = Math.round(KB_D * px);
   const ctx = canvas.getContext("2d")!;
-  ctx.fillStyle = "#e5e7eb";
+  // Backlit legends: white letters with a soft white halo
+  ctx.fillStyle = "#ffffff";
+  ctx.shadowColor = "rgba(255, 255, 255, 0.7)";
+  ctx.shadowBlur = 6;
   ctx.textBaseline = "middle";
 
   for (const k of keys) {
@@ -169,11 +172,18 @@ function makeGrilleTexture() {
   return new THREE.CanvasTexture(canvas);
 }
 
-function Keyboard() {
+function Keyboard({ glow }: { glow: React.RefObject<number> }) {
   const keys = useMemo(buildKeys, []);
   const ref = useRef<THREE.InstancedMesh>(null!);
   const geometry = useMemo(() => new RoundedBoxGeometry(1, 1, 1, 2, 0.12), []);
   const labels = useMemo(() => makeLabelTexture(keys), [keys]);
+  const labelMat = useRef<THREE.MeshBasicMaterial>(null!);
+
+  // Backlight follows the lid: off when closed, a soft glow once open.
+  useFrame(() => {
+    const g = glow.current ?? 0;
+    labelMat.current.opacity = 0.2 + 0.8 * g;
+  });
 
   useLayoutEffect(() => {
     const m = new THREE.Matrix4();
@@ -212,7 +222,15 @@ function Keyboard() {
       {/* Key legends */}
       <mesh position={[0, BASE_H + KEY_H + 0.0005, KB_Z0 + KB_D / 2]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[KB_W, KB_D]} />
-        <meshBasicMaterial map={labels} transparent depthWrite={false} toneMapped={false} opacity={0.85} />
+        <meshBasicMaterial
+          ref={labelMat}
+          map={labels}
+          transparent
+          opacity={0.2}
+          depthWrite={false}
+          toneMapped={false}
+          blending={THREE.AdditiveBlending}
+        />
       </mesh>
     </group>
   );
@@ -249,6 +267,7 @@ function Laptop({ src, onReady }: { src: string; onReady?: () => void }) {
   texture.anisotropy = 8;
 
   const lid = useRef<THREE.Group>(null!);
+  const glow = useRef(0); // 0 = lid closed, 1 = fully open
 
   // Start closed. Set once here (not as a prop) so a re-render, such as a
   // theme change, doesn't snap the lid shut again.
@@ -268,6 +287,11 @@ function Laptop({ src, onReady }: { src: string; onReady?: () => void }) {
       2.2,
       Math.min(delta, 0.05)
     );
+    glow.current = THREE.MathUtils.clamp(
+      (CLOSED_ANGLE - lid.current.rotation.x) / (CLOSED_ANGLE - OPEN_ANGLE),
+      0,
+      1
+    );
   });
 
   const shell = isDark ? "#6b7280" : "#c9ced6";
@@ -281,7 +305,7 @@ function Laptop({ src, onReady }: { src: string; onReady?: () => void }) {
         {shellMat}
       </RoundedBox>
 
-      <Keyboard />
+      <Keyboard glow={glow} />
       <Speakers />
 
       {/* Trackpad */}
