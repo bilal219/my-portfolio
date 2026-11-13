@@ -85,7 +85,7 @@ export default function Navigation() {
       </svg>
 
 
-      <header className="pt-10 pb-4 lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-center lg:py-16 relative z-20">
+      <header className="pt-20 pb-8 lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-center lg:py-16 relative z-20">
         <div className="flex flex-col items-start justify-center gap-8 lg:gap-6">
           <h1 className="font-bold tracking-tight text-slate-800 dark:text-slate-200 sm:text-sm text-[8px] font-dreams leading-[4.5]">
             <Link href="/">
@@ -178,7 +178,7 @@ export default function Navigation() {
       <nav className="fixed bottom-0 left-0 right-0 z-50 lg:hidden flex justify-center" aria-label="Sections">
         <div className="mx-4 mb-4 w-full max-w-[450px]">
           <div className="backdrop-blur-md bg-white/40 dark:bg-slate-900/40 border border-slate-200/30 dark:border-slate-700/30 rounded-2xl shadow-lg">
-            <div className="flex items-center justify-around px-2 py-2">
+            <div className="flex items-center justify-around px-4 py-3">
               {navigation.map((item) => {
                 const getIcon = (name: string) => {
                   switch (name) {
@@ -317,16 +317,13 @@ export default function Navigation() {
                     onClick={() => scrollToSection(item.href)}
                     aria-label={`Go to ${item.name}`}
                     aria-current={isActive ? "location" : undefined}
-                    className={`flex min-w-11 flex-col items-center justify-center gap-1 rounded-xl px-1.5 py-2 transition-all duration-200 ${
+                    className={`flex items-center justify-center p-3 rounded-xl transition-all duration-200 ${
                       isActive
                         ? "text-portfolio bg-portfolio/10"
                         : "text-slate-500 dark:text-slate-400 hover:text-portfolio hover:bg-portfolio/5"
                     }`}
                   >
                     <span aria-hidden="true">{getIcon(item.name)}</span>
-                    <span className="text-[10px] font-medium leading-none" aria-hidden="true">
-                      {item.name}
-                    </span>
                   </button>
                 );
               })}
