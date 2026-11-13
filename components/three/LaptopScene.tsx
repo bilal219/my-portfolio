@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
@@ -38,7 +38,7 @@ const ROWS: { height: number; keys: KeyDef[] }[] = [
     keys: [
       ["esc", 1.5, true],
       ...Array.from({ length: 12 }, (_, i): KeyDef => [`F${i + 1}`, 1, true]),
-      ["⏻", 1, true],
+      ["â»", 1, true],
     ],
   },
   {
@@ -74,13 +74,13 @@ const ROWS: { height: number; keys: KeyDef[] }[] = [
       ["fn", 1, true],
       ["ctrl", 1, true],
       ["opt", 1, true],
-      ["⌘", 1.25],
+      ["âŒ˜", 1.25],
       ["", 5],
-      ["⌘", 1.25],
+      ["âŒ˜", 1.25],
       ["opt", 1, true],
-      ["◀", 1, true],
+      ["â—€", 1, true],
       ["ARROWS_UD", 1],
-      ["▶", 1, true],
+      ["â–¶", 1, true],
     ],
   },
 ];
@@ -105,8 +105,8 @@ function buildKeys(): KeyRect[] {
       const w = units * U;
       if (label === "ARROWS_UD") {
         // Half-height up and down arrows stacked in one slot
-        keys.push({ x: x + w / 2, z: z + rowD / 4, w: w - GAP, d: rowD / 2 - GAP, label: "▲", small: true });
-        keys.push({ x: x + w / 2, z: z + (rowD * 3) / 4, w: w - GAP, d: rowD / 2 - GAP, label: "▼", small: true });
+        keys.push({ x: x + w / 2, z: z + rowD / 4, w: w - GAP, d: rowD / 2 - GAP, label: "â–²", small: true });
+        keys.push({ x: x + w / 2, z: z + (rowD * 3) / 4, w: w - GAP, d: rowD / 2 - GAP, label: "â–¼", small: true });
       } else {
         keys.push({ x: x + w / 2, z: z + rowD / 2, w: w - GAP, d: rowD - GAP, label, small });
       }
@@ -178,11 +178,13 @@ function Keyboard({ glow }: { glow: React.RefObject<number> }) {
   const geometry = useMemo(() => new RoundedBoxGeometry(1, 1, 1, 2, 0.12), []);
   const labels = useMemo(() => makeLabelTexture(keys), [keys]);
   const labelMat = useRef<THREE.MeshBasicMaterial>(null!);
+  const wellMat = useRef<THREE.MeshStandardMaterial>(null!);
 
   // Backlight follows the lid: off when closed, a soft glow once open.
   useFrame(() => {
     const g = glow.current ?? 0;
     labelMat.current.opacity = 0.2 + 0.8 * g;
+    wellMat.current.emissiveIntensity = 0.1 * g;
   });
 
   useLayoutEffect(() => {
@@ -212,7 +214,14 @@ function Keyboard({ glow }: { glow: React.RefObject<number> }) {
       {/* Recessed well the keys sit in */}
       <mesh position={[0, BASE_H + 0.0006, KB_Z0 + KB_D / 2]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[KB_W + 0.05, KB_D + 0.05]} />
-        <meshStandardMaterial color="#0b0c0f" roughness={0.9} />
+        {/* Faint white light showing between the keys */}
+        <meshStandardMaterial
+          ref={wellMat}
+          color="#0b0c0f"
+          roughness={0.9}
+          emissive="#ffffff"
+          emissiveIntensity={0}
+        />
       </mesh>
 
       <instancedMesh ref={ref} args={[geometry, undefined, keys.length]}>
