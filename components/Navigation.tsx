@@ -85,7 +85,7 @@ export default function Navigation() {
       </svg>
 
 
-      <header className="pt-20 pb-8 lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 relative z-20">
+      <header className="pt-10 pb-4 lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-center lg:py-16 relative z-20">
         <div className="flex flex-col items-start justify-center gap-8 lg:gap-6">
           <h1 className="font-bold tracking-tight text-slate-800 dark:text-slate-200 sm:text-sm text-[8px] font-dreams leading-[4.5]">
             <Link href="/">
@@ -98,15 +98,15 @@ export default function Navigation() {
           <p className=" leading-normal font-helvetica text-slate-600 dark:text-slate-400">
             I build production SaaS apps end to end, from the database to the UI. 4+ years with React, Next.js, Node.js, and now Angular and .NET.
           </p>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+          <div className="flex flex-nowrap items-center gap-3 sm:gap-4">
             <a
               href="/Muhammad-Bilal-Yousaf-Resume.pdf"
               download="Muhammad-Bilal-Yousaf-Resume.pdf"
-              className="btn-gradient-shimmer group inline-flex items-center gap-2"
+              className="btn-gradient-shimmer group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-xl! px-4! py-2.5! text-[0.7rem]! sm:px-5! sm:text-xs!"
               aria-label="Download résumé (PDF)"
             >
               <svg
-                className="h-4 w-4 transition-transform group-hover:translate-y-0.5 motion-reduce:transition-none"
+                className="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5 motion-reduce:transition-none"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -128,7 +128,7 @@ export default function Navigation() {
                     rel="noreferrer noopener"
                     aria-label={`${link.name} (opens in a new tab)`}
                     title={link.name}
-                    className="icon-portfolio-gradient flex h-11 w-11 items-center justify-center rounded-full transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-portfolio motion-reduce:transition-none"
+                    className="icon-portfolio-gradient flex h-10 w-10 items-center justify-center rounded-full transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-portfolio motion-reduce:transition-none"
                   >
                     <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d={BRAND_ICONS[link.icon as keyof typeof BRAND_ICONS]} />
@@ -139,12 +139,12 @@ export default function Navigation() {
             </ul>
           </div>
           <nav className="nav hidden lg:block" aria-label="In-page jump links">
-            <ul className="mt-8 w-max">
+            <ul className="mt-2 w-max">
               {navigation.map((item) => (
                 <li key={item.name}>
                   <button
                     onClick={() => scrollToSection(item.href)}
-                    className={`group flex items-center py-3 ${
+                    className={`group flex items-center py-2.5 ${
                       activeSection === item.href.slice(1)
                         ? "text-slate-700 dark:text-slate-200"
                         : "text-slate-500 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-200"
