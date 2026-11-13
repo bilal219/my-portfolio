@@ -304,62 +304,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "h33-ai",
-    title: "H33",
-    description:
-      "Secure storage SaaS. I owned file and folder management, built the AI-powered search, and added Fully Homomorphic Encryption (FHE) for stored files.",
-    overview:
-      "H33 is a cybersecurity platform focused on post-quantum security and AI governance. I worked on its secure storage product, where users upload, share, and search files that stay encrypted.",
-    role: "Full Stack Software Engineer",
-    image: "/assets/projects/h33-ai.webp",
-    technologies: [
-      "Next.js",
-      "Vue.js",
-      "React",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "FHE",
-      "AI-Powered Search",
-      "Tailwind CSS",
-    ],
-    contributions: [
-      "Owned file and folder management end to end: uploads, sharing, permission controls, and custom actions",
-      "Built AI-powered search with prompt-based and suggestion-based querying",
-      "Scoped search results with access control, so users only see files they are allowed to see",
-      "Added Fully Homomorphic Encryption (FHE) alongside standard encryption for stored files and folders",
-      "Optimized storage modules for stability and performance",
-      "Learned Vue.js on the job to work across the frontend",
-    ],
-    highlights: [
-      { label: "Encryption", value: "FHE" },
-      { label: "Search", value: "AI-powered" },
-      { label: "Ownership", value: "End to end" },
-    ],
-    demo: "https://h33.ai/",
-    featured: true,
-    company: "Crewlogix Technologies",
-    year: "2025 — 2026",
-    timeline: [
-      {
-        date: "Jun 2025",
-        title: "File and folder management",
-        description: "Uploads, sharing, permissions, and custom actions.",
-      },
-      {
-        date: "Jul 2025 — Aug 2025",
-        title: "Encryption",
-        description: "FHE plus standard encryption for stored data.",
-      },
-      {
-        date: "Sep 2025 — May 2026",
-        title: "AI search and tuning",
-        description:
-          "Prompt-based and suggestion-based search with per-user access control, plus storage performance work.",
-      },
-    ],
-  },
-  {
     id: "home-school-panda",
     title: "Home School Panda",
     description:
@@ -481,7 +425,7 @@ export const projects: Project[] = [
       { label: "Users", value: "Engineers & architects" },
     ],
     demo: "https://sealpact.com/",
-    featured: false,
+    featured: true,
   },
   {
     id: "fbr-research",
@@ -498,7 +442,7 @@ export const projects: Project[] = [
       "Integrated Stripe for one-time and recurring donations",
     ],
     demo: "https://fbresearch.org/",
-    featured: true,
+    featured: false,
     company: "GTek Solutions",
     year: "2022 — 2023",
     timeline: [
@@ -511,6 +455,62 @@ export const projects: Project[] = [
         date: "Feb 2023",
         title: "Launch",
         description: "Shipped the site with donations live.",
+      },
+    ],
+  },
+  {
+    id: "h33-ai",
+    title: "H33",
+    description:
+      "Secure storage SaaS. I owned file and folder management, built the AI-powered search, and added Fully Homomorphic Encryption (FHE) for stored files.",
+    overview:
+      "H33 is a cybersecurity platform focused on post-quantum security and AI governance. I worked on its secure storage product, where users upload, share, and search files that stay encrypted.",
+    role: "Full Stack Software Engineer",
+    image: "/assets/projects/h33-ai.webp",
+    technologies: [
+      "Next.js",
+      "Vue.js",
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "FHE",
+      "AI-Powered Search",
+      "Tailwind CSS",
+    ],
+    contributions: [
+      "Owned file and folder management end to end: uploads, sharing, permission controls, and custom actions",
+      "Built AI-powered search with prompt-based and suggestion-based querying",
+      "Scoped search results with access control, so users only see files they are allowed to see",
+      "Added Fully Homomorphic Encryption (FHE) alongside standard encryption for stored files and folders",
+      "Optimized storage modules for stability and performance",
+      "Learned Vue.js on the job to work across the frontend",
+    ],
+    highlights: [
+      { label: "Encryption", value: "FHE" },
+      { label: "Search", value: "AI-powered" },
+      { label: "Ownership", value: "End to end" },
+    ],
+    demo: "https://h33.ai/",
+    featured: false,
+    company: "Crewlogix Technologies",
+    year: "2025 — 2026",
+    timeline: [
+      {
+        date: "Jun 2025",
+        title: "File and folder management",
+        description: "Uploads, sharing, permissions, and custom actions.",
+      },
+      {
+        date: "Jul 2025 — Aug 2025",
+        title: "Encryption",
+        description: "FHE plus standard encryption for stored data.",
+      },
+      {
+        date: "Sep 2025 — May 2026",
+        title: "AI search and tuning",
+        description:
+          "Prompt-based and suggestion-based search with per-user access control, plus storage performance work.",
       },
     ],
   },
