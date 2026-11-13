@@ -4,7 +4,14 @@ import { experiences } from "@/constants/data";
 
 type Experience = (typeof experiences)[number];
 
-export default function ExperienceList({ items }: { items: Experience[] }) {
+export default function ExperienceList({
+  items,
+  maxTech,
+}: {
+  items: Experience[];
+  /** Show at most this many technology chips, then a "+N more" chip */
+  maxTech?: number;
+}) {
   return (
     <ol className="group/list">
       {items.map((experience) => (
@@ -47,13 +54,23 @@ export default function ExperienceList({ items }: { items: Experience[] }) {
                 {experience.description}
               </p>
               <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
-                {experience.technologies.map((tech) => (
+                {(maxTech ? experience.technologies.slice(0, maxTech) : experience.technologies).map((tech) => (
                   <li key={tech} className="mr-1.5 mt-2">
                     <div className="flex items-center rounded-full bg-portfolio/10 px-3 py-1 text-xs font-medium leading-5 text-portfolio">
                       {tech}
                     </div>
                   </li>
                 ))}
+                {maxTech && experience.technologies.length > maxTech && (
+                  <li className="mr-1.5 mt-2">
+                    <span
+                      className="flex items-center rounded-full border border-slate-300 px-3 py-1 text-xs font-medium leading-5 text-slate-500 dark:border-slate-700 dark:text-slate-400"
+                      title={experience.technologies.slice(maxTech).join(", ")}
+                    >
+                      +{experience.technologies.length - maxTech} more
+                    </span>
+                  </li>
+                )}
               </ul>
             </div>
           </div>

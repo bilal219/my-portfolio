@@ -103,8 +103,8 @@ export default function RootLayout({
       >
         <AnimatedSphereBackground />
         <ScrollToTop />
-        {/* Theme Toggle - Fixed Top Right */}
-        <div className="fixed top-6 right-6 z-30">
+        {/* Theme toggle: scrolls away on mobile so it never covers content, fixed on desktop */}
+        <div className="absolute right-5 top-5 z-30 lg:fixed lg:right-6 lg:top-6">
           <ThemeToggle />
         </div>
         <div className="relative z-10 mx-auto min-h-screen px-6 py-12 md:px-12 md:py-20 lg:px-20 lg:py-0">

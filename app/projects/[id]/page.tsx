@@ -61,6 +61,14 @@ export async function generateMetadata({
   };
 }
 
+// Lucide-style outline icons for the key facts strip
+const FACT_ICONS: Record<string, string> = {
+  Role: "M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16M4 6h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z",
+  Company: "M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18ZM6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4",
+  Timeline: "M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z",
+  Stack: "m16 18 6-6-6-6M8 6l-6 6 6 6",
+};
+
 function SectionHeading({ id, children }: { id: string; children: React.ReactNode }) {
   return (
     <h2
@@ -168,15 +176,25 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </header>
 
         {/* Key facts */}
-        <dl className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 dark:border-slate-800 dark:bg-slate-800 md:grid-cols-4">
+        <dl className="mt-10 grid grid-cols-2 gap-x-4 gap-y-6 border-y border-slate-200 py-6 dark:border-white/10 md:grid-cols-4 md:gap-x-6">
           {facts.map((fact) => (
-            <div key={fact.label} className="bg-white/80 p-5 dark:bg-slate-900/80">
-              <dt className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                {fact.label}
-              </dt>
-              <dd className="mt-1.5 text-sm font-medium text-slate-900 dark:text-slate-100">
-                {fact.value}
-              </dd>
+            <div key={fact.label} className="flex min-w-0 items-start gap-3">
+              <span
+                className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-portfolio/10 text-portfolio ring-1 ring-inset ring-portfolio/20"
+                aria-hidden="true"
+              >
+                <svg className="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+                  <path d={FACT_ICONS[fact.label]} />
+                </svg>
+              </span>
+              <div className="min-w-0">
+                <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">
+                  {fact.label}
+                </dt>
+                <dd className="mt-1 text-sm font-semibold leading-snug text-slate-900 dark:text-slate-100">
+                  {fact.value}
+                </dd>
+              </div>
             </div>
           ))}
         </dl>

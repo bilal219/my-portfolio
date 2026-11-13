@@ -22,7 +22,7 @@ export default function ProjectShowcase({ src, alt }: { src: string; alt: string
   }, []);
 
   return (
-    <figure className="relative mt-10">
+    <figure className="relative mt-4 sm:mt-6">
       <div className="relative aspect-[16/10]">
         <div
           className={`absolute inset-0 overflow-hidden rounded-2xl border border-slate-200 shadow-2xl shadow-slate-900/10 transition-all duration-700 dark:border-slate-800 dark:shadow-black/40 ${
