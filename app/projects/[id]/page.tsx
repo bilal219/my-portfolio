@@ -189,16 +189,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Highlights */}
         {project.highlights && project.highlights.length > 0 && (
-          <ul className="mt-10 grid gap-4 sm:grid-cols-3" aria-label="Project highlights">
+          <ul className="mt-6 grid grid-cols-3 gap-2 sm:mt-10 sm:gap-4" aria-label="Project highlights">
             {project.highlights.map((h) => (
               <li
                 key={h.label}
-                className="rounded-2xl border border-portfolio/20 bg-portfolio/5 p-5"
+                className="rounded-xl border border-portfolio/20 bg-portfolio/5 px-3 py-2.5 sm:rounded-2xl sm:p-5"
               >
-                <p className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+                <p className="text-sm font-bold leading-tight tracking-tight text-slate-900 sm:text-2xl dark:text-slate-100">
                   {h.value}
                 </p>
-                <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{h.label}</p>
+                <p className="mt-0.5 text-[11px] leading-tight text-slate-600 sm:mt-1 sm:text-sm dark:text-slate-400">{h.label}</p>
               </li>
             ))}
           </ul>
